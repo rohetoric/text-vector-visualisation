@@ -3,34 +3,34 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Generating Word Vectors Using FastText Blog-Post | Machine Learning Blog</title>
+<title>Title | Machine Learning Blog</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Generating Word Vectors Using FastText Blog-Post" />
+<meta property="og:title" content="Title" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Conversion of words in the vocabulary of the dataset to vectors using FastText." />
-<meta property="og:description" content="Conversion of words in the vocabulary of the dataset to vectors using FastText." />
-<link rel="canonical" href="https://rohetoric.github.io/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html" />
-<meta property="og:url" content="https://rohetoric.github.io/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html" />
+<meta name="description" content="Visualisation of FastText Vectors Using TensorFlow 1 and 2" />
+<meta property="og:description" content="Visualisation of FastText Vectors Using TensorFlow 1 and 2" />
+<link rel="canonical" href="https://rohetoric.github.io/blog-post/2020/05/20/fasttext-model-train.html" />
+<meta property="og:url" content="https://rohetoric.github.io/blog-post/2020/05/20/fasttext-model-train.html" />
 <meta property="og:site_name" content="Machine Learning Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-05-19T00:00:00-05:00" />
+<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Conversion of words in the vocabulary of the dataset to vectors using FastText.","@type":"BlogPosting","headline":"Generating Word Vectors Using FastText Blog-Post","dateModified":"2020-05-19T00:00:00-05:00","datePublished":"2020-05-19T00:00:00-05:00","url":"https://rohetoric.github.io/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html"},"@context":"https://schema.org"}</script>
+{"description":"Visualisation of FastText Vectors Using TensorFlow 1 and 2","@type":"BlogPosting","headline":"Title","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","url":"https://rohetoric.github.io/blog-post/2020/05/20/fasttext-model-train.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/blog-post/2020/05/20/fasttext-model-train.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog-post/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rohetoric.github.io/blog-post/feed.xml" title="Machine Learning Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog-post/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Generating Word Vectors Using FastText Blog-Post | Machine Learning Blog</title>
+<title>Title | Machine Learning Blog</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Generating Word Vectors Using FastText Blog-Post" />
+<meta property="og:title" content="Title" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Conversion of words in the vocabulary of the dataset to vectors using FastText." />
-<meta property="og:description" content="Conversion of words in the vocabulary of the dataset to vectors using FastText." />
-<link rel="canonical" href="https://rohetoric.github.io/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html" />
-<meta property="og:url" content="https://rohetoric.github.io/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html" />
+<meta name="description" content="Visualisation of FastText Vectors Using TensorFlow 1 and 2" />
+<meta property="og:description" content="Visualisation of FastText Vectors Using TensorFlow 1 and 2" />
+<link rel="canonical" href="https://rohetoric.github.io/blog-post/2020/05/20/fasttext-model-train.html" />
+<meta property="og:url" content="https://rohetoric.github.io/blog-post/2020/05/20/fasttext-model-train.html" />
 <meta property="og:site_name" content="Machine Learning Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-05-19T00:00:00-05:00" />
+<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Conversion of words in the vocabulary of the dataset to vectors using FastText.","@type":"BlogPosting","headline":"Generating Word Vectors Using FastText Blog-Post","dateModified":"2020-05-19T00:00:00-05:00","datePublished":"2020-05-19T00:00:00-05:00","url":"https://rohetoric.github.io/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html"},"@context":"https://schema.org"}</script>
+{"description":"Visualisation of FastText Vectors Using TensorFlow 1 and 2","@type":"BlogPosting","headline":"Title","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","url":"https://rohetoric.github.io/blog-post/2020/05/20/fasttext-model-train.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/blog-post/2020/05/20/fasttext-model-train.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -85,26 +85,16 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Generating Word Vectors Using FastText Blog-Post</h1><p class="page-description">Conversion of words in the vocabulary of the dataset to vectors using FastText.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-19T00:00:00-05:00" itemprop="datePublished">
-        May 19, 2020
+    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-20T00:00:00-05:00" itemprop="datePublished">
+        May 20, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
-    
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
-      
-        <a class="category-tags-link" href="/blog-post/categories/#jupyter">jupyter</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/blog-post/categories/#fasttext">fasttext</a>
-        
-      
-      </p>
     
 
     
@@ -112,19 +102,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/rohetoric/blog-post/tree/master/_notebooks/2020-05-19-fasttext-model-train.ipynb" role="button" target="_blank">
+    <a href="https://github.com/rohetoric/blog-post/tree/master/_notebooks/2020-05-20-fasttext-model-train.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/blog-post/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/rohetoric/blog-post/master?filepath=_notebooks%2F2020-05-19-fasttext-model-train.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/rohetoric/blog-post/master?filepath=_notebooks%2F2020-05-20-fasttext-model-train.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/blog-post/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/rohetoric/blog-post/blob/master/_notebooks/2020-05-19-fasttext-model-train.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/rohetoric/blog-post/blob/master/_notebooks/2020-05-20-fasttext-model-train.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/blog-post/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -132,12 +122,11 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <ul class="section-nav">
-</ul><!--
+    <!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2020-05-19-fasttext-model-train.ipynb
+# file to edit: _notebooks/2020-05-20-fasttext-model-train.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -149,10 +138,22 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/blog-post/images/copied_from_nb/my_icons/fasttext.png" alt='"FastText"'></p>
+<h2 id="Generating-Word-Vectors-Using-FastText-Blog-Post">Generating Word Vectors Using FastText Blog-Post<a class="anchor-link" href="#Generating-Word-Vectors-Using-FastText-Blog-Post"> </a></h2><blockquote><p>Conversion of words in the vocabulary of the dataset to vectors using FastText.</p>
+</blockquote>
+<ul>
+<li>toc:false - badges: true</li>
+<li>comments: true</li>
+<li>categories: [jupyter,fasttext,python]</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/blog-post/images/copied_from_nb/my_icons/fasttext.png" alt="&quot;FastText&quot;" /></p>
 
 </div>
 </div>
@@ -182,21 +183,32 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The dataset can be downloaded through:</p>
 <ol>
-<li>
-<p>Terminal:
+<li><p>Terminal:
 <code>gsutil cp gs://dataset-uploader/bbc/bbc-text.csv</code></p>
 
 <pre><code>              OR</code></pre>
 </li>
-<li>
-<p>Visiting this <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">website</a> from the browser.</p>
+<li><p>Visiting this <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">website</a> from the browser.</p>
 </li>
 </ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
 
 </div>
 </div>
@@ -208,7 +220,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"bbc-text.csv"</span><span class="p">)</span>  <span class="c1"># reading the dataset</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;bbc-text.csv&quot;</span><span class="p">)</span>  <span class="c1"># reading the dataset</span>
 </pre></div>
 
     </div>
@@ -355,7 +367,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"category"</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># don't need the labels for the text</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># don&#39;t need the labels for the text</span>
 </pre></div>
 
     </div>
@@ -478,11 +490,11 @@ window.onload = wrap_img;
 <span class="n">filtered_list</span> <span class="o">=</span> <span class="p">[]</span>
 
 
-<span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"text"</span><span class="p">]:</span>
+<span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]:</span>
     
     <span class="c1"># removing punctuations from string</span>
     <span class="n">string_translate</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span>
-        <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
+        <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
     <span class="p">)</span>  
 
     <span class="c1"># initialise string to english langauge functions of spacy</span>
@@ -505,13 +517,13 @@ window.onload = wrap_img;
             <span class="p">)</span>  
 
     <span class="c1"># converting list of tokenised words without stopwords to sentence</span>
-    <span class="n">filtered_sentence</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">filtered_sentence</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
         <span class="n">filtered_list</span>
     <span class="p">)</span>  
 
     <span class="c1"># removing multiple spaces from the string</span>
     <span class="n">filtered_sentence</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
-        <span class="s2">" +"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">filtered_sentence</span>
+        <span class="s2">&quot; +&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">filtered_sentence</span>
     <span class="p">)</span>  
 
     <span class="c1"># appending the list with strings without stop words</span>
@@ -539,7 +551,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>'tv future hands viewers home theatre systems plasma highdefinition tvs digital video recorders moving living room way people watch tv radically different years time according expert panel gathered annual consumer electronics las vegas discuss new technologies impact favourite pastimes leading trend programmes content delivered viewers home networks cable satellite telecoms companies broadband service providers rooms portable devices talkedabout technologies ces digital personal video recorders dvr pvr settop boxes like s tivo uk s sky system allow people record store play pause forward wind tv programmes want essentially technology allows personalised tv builtin highdefinition tv sets big business japan slower europe lack highdefinition programming people forward wind adverts forget abiding network channel schedules putting alacarte entertainment networks cable satellite companies worried means terms advertising revenues brand identity viewer loyalty channels leads technology moment concern raised europe particularly growing uptake services like sky happens today months years time uk adam hume bbc broadcast s futurologist told bbc news website likes bbc issues lost advertising revenue pressing issue moment commercial uk broadcasters brand loyalty important talking content brands network brands said tim hanlon brand communications firm starcom mediavest reality broadband connections anybody producer content added challenge hard promote programme choice means said stacey jolna senior vice president tv guide tv group way people find content want watch simplified tv viewers means networks terms channels leaf google s book search engine future instead scheduler help people find want watch kind channel model work younger ipod generation taking control gadgets play suit panel recognised older generations comfortable familiar schedules channel brands know getting want choice hands mr hanlon suggested end kids diapers pushing buttons possible available said mr hanlon ultimately consumer tell market want 50 000 new gadgets technologies showcased ces enhancing tvwatching experience highdefinition tv sets new models lcd liquid crystal display tvs launched dvr capability built instead external boxes example launched humax s 26inch lcd tv 80hour tivo dvr dvd recorder s biggest satellite tv companies directtv launched branded dvr 100hours recording capability instant replay search function set pause rewind tv 90 hours microsoft chief bill gates announced preshow keynote speech partnership tivo called tivotogo means people play recorded programmes windows pcs mobile devices reflect increasing trend freeing multimedia people watch want want'</pre>
+<pre>&#39;tv future hands viewers home theatre systems plasma highdefinition tvs digital video recorders moving living room way people watch tv radically different years time according expert panel gathered annual consumer electronics las vegas discuss new technologies impact favourite pastimes leading trend programmes content delivered viewers home networks cable satellite telecoms companies broadband service providers rooms portable devices talkedabout technologies ces digital personal video recorders dvr pvr settop boxes like s tivo uk s sky system allow people record store play pause forward wind tv programmes want essentially technology allows personalised tv builtin highdefinition tv sets big business japan slower europe lack highdefinition programming people forward wind adverts forget abiding network channel schedules putting alacarte entertainment networks cable satellite companies worried means terms advertising revenues brand identity viewer loyalty channels leads technology moment concern raised europe particularly growing uptake services like sky happens today months years time uk adam hume bbc broadcast s futurologist told bbc news website likes bbc issues lost advertising revenue pressing issue moment commercial uk broadcasters brand loyalty important talking content brands network brands said tim hanlon brand communications firm starcom mediavest reality broadband connections anybody producer content added challenge hard promote programme choice means said stacey jolna senior vice president tv guide tv group way people find content want watch simplified tv viewers means networks terms channels leaf google s book search engine future instead scheduler help people find want watch kind channel model work younger ipod generation taking control gadgets play suit panel recognised older generations comfortable familiar schedules channel brands know getting want choice hands mr hanlon suggested end kids diapers pushing buttons possible available said mr hanlon ultimately consumer tell market want 50 000 new gadgets technologies showcased ces enhancing tvwatching experience highdefinition tv sets new models lcd liquid crystal display tvs launched dvr capability built instead external boxes example launched humax s 26inch lcd tv 80hour tivo dvr dvd recorder s biggest satellite tv companies directtv launched branded dvr 100hours recording capability instant replay search function set pause rewind tv 90 hours microsoft chief bill gates announced preshow keynote speech partnership tivo called tivotogo means people play recorded programmes windows pcs mobile devices reflect increasing trend freeing multimedia people watch want want&#39;</pre>
 </div>
 
 </div>
@@ -557,9 +569,9 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"refined-bbc-text.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;refined-bbc-text.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">refined_string_list</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">item</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -629,8 +641,7 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Default Configuration for parameters mentioned in [ ] for fasttext.train_unsupervised():</p>
 
@@ -662,7 +673,7 @@ verbose           # verbose [2]</code></pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">fasttext</span><span class="o">.</span><span class="n">train_unsupervised</span><span class="p">(</span><span class="s2">"refined-bbc-text.txt"</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">thread</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">fasttext</span><span class="o">.</span><span class="n">train_unsupervised</span><span class="p">(</span><span class="s2">&quot;refined-bbc-text.txt&quot;</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">thread</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -694,10 +705,10 @@ Wall time: 46.2 s
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"tensorboard/metadata.tsv"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;tensorboard/metadata.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-            <span class="s2">"</span><span class="si">%s</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="n">item</span>
+            <span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">item</span>
         <span class="p">)</span>  <span class="c1"># writing the vocabulary words of the model to a text file</span>
 </pre></div>
 
@@ -715,7 +726,7 @@ Wall time: 46.2 s
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="s2">"fasttextmodel.bin"</span><span class="p">)</span>  <span class="c1"># saving the model</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="s2">&quot;fasttextmodel.bin&quot;</span><span class="p">)</span>  <span class="c1"># saving the model</span>
 </pre></div>
 
     </div>
@@ -725,19 +736,18 @@ Wall time: 46.2 s
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
 </div>
 
 
 
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="rohetoric/blog-post"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script><a class="u-url" href="/blog-post/jupyter/fasttext/2020/05/19/fasttext-model-train.html" hidden></a>
+  </div><a class="u-url" href="/blog-post/2020/05/20/fasttext-model-train.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">

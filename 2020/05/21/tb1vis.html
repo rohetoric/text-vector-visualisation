@@ -3,34 +3,34 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Visualisation of Embeddings Using TF1 [NOT ADVISABLE] | Machine Learning Blog</title>
+<title>Title | Machine Learning Blog</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Visualisation of Embeddings Using TF1 [NOT ADVISABLE]" />
+<meta property="og:title" content="Title" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Exploration and Visualisation of Word Vectors Using TensorFlow 1" />
-<meta property="og:description" content="Exploration and Visualisation of Word Vectors Using TensorFlow 1" />
-<link rel="canonical" href="https://rohetoric.github.io/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html" />
-<meta property="og:url" content="https://rohetoric.github.io/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html" />
+<meta name="description" content="Visualisation of FastText Vectors Using TensorFlow 1 and 2" />
+<meta property="og:description" content="Visualisation of FastText Vectors Using TensorFlow 1 and 2" />
+<link rel="canonical" href="https://rohetoric.github.io/blog-post/2020/05/21/tb1vis.html" />
+<meta property="og:url" content="https://rohetoric.github.io/blog-post/2020/05/21/tb1vis.html" />
 <meta property="og:site_name" content="Machine Learning Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
+<meta property="article:published_time" content="2020-05-21T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Exploration and Visualisation of Word Vectors Using TensorFlow 1","@type":"BlogPosting","headline":"Visualisation of Embeddings Using TF1 [NOT ADVISABLE]","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","url":"https://rohetoric.github.io/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html"},"@context":"https://schema.org"}</script>
+{"description":"Visualisation of FastText Vectors Using TensorFlow 1 and 2","@type":"BlogPosting","headline":"Title","dateModified":"2020-05-21T00:00:00-05:00","datePublished":"2020-05-21T00:00:00-05:00","url":"https://rohetoric.github.io/blog-post/2020/05/21/tb1vis.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/blog-post/2020/05/21/tb1vis.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog-post/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rohetoric.github.io/blog-post/feed.xml" title="Machine Learning Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog-post/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Visualisation of Embeddings Using TF1 [NOT ADVISABLE] | Machine Learning Blog</title>
+<title>Title | Machine Learning Blog</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Visualisation of Embeddings Using TF1 [NOT ADVISABLE]" />
+<meta property="og:title" content="Title" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Exploration and Visualisation of Word Vectors Using TensorFlow 1" />
-<meta property="og:description" content="Exploration and Visualisation of Word Vectors Using TensorFlow 1" />
-<link rel="canonical" href="https://rohetoric.github.io/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html" />
-<meta property="og:url" content="https://rohetoric.github.io/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html" />
+<meta name="description" content="Visualisation of FastText Vectors Using TensorFlow 1 and 2" />
+<meta property="og:description" content="Visualisation of FastText Vectors Using TensorFlow 1 and 2" />
+<link rel="canonical" href="https://rohetoric.github.io/blog-post/2020/05/21/tb1vis.html" />
+<meta property="og:url" content="https://rohetoric.github.io/blog-post/2020/05/21/tb1vis.html" />
 <meta property="og:site_name" content="Machine Learning Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
+<meta property="article:published_time" content="2020-05-21T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Exploration and Visualisation of Word Vectors Using TensorFlow 1","@type":"BlogPosting","headline":"Visualisation of Embeddings Using TF1 [NOT ADVISABLE]","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","url":"https://rohetoric.github.io/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html"},"@context":"https://schema.org"}</script>
+{"description":"Visualisation of FastText Vectors Using TensorFlow 1 and 2","@type":"BlogPosting","headline":"Title","dateModified":"2020-05-21T00:00:00-05:00","datePublished":"2020-05-21T00:00:00-05:00","url":"https://rohetoric.github.io/blog-post/2020/05/21/tb1vis.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/blog-post/2020/05/21/tb1vis.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -85,26 +85,16 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Visualisation of Embeddings Using TF1 [NOT ADVISABLE]</h1><p class="page-description">Exploration and Visualisation of Word Vectors Using TensorFlow 1</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-20T00:00:00-05:00" itemprop="datePublished">
-        May 20, 2020
+    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-21T00:00:00-05:00" itemprop="datePublished">
+        May 21, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      4 min read
     
 </span></p>
 
-    
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
-      
-        <a class="category-tags-link" href="/blog-post/categories/#jupyter">jupyter</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/blog-post/categories/#tensorflow">tensorflow</a>
-        
-      
-      </p>
     
 
     
@@ -112,19 +102,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/rohetoric/blog-post/tree/master/_notebooks/2020-05-20-tb1vis.ipynb" role="button" target="_blank">
+    <a href="https://github.com/rohetoric/blog-post/tree/master/_notebooks/2020-05-21-tb1vis.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/blog-post/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/rohetoric/blog-post/master?filepath=_notebooks%2F2020-05-20-tb1vis.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/rohetoric/blog-post/master?filepath=_notebooks%2F2020-05-21-tb1vis.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/blog-post/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/rohetoric/blog-post/blob/master/_notebooks/2020-05-20-tb1vis.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/rohetoric/blog-post/blob/master/_notebooks/2020-05-21-tb1vis.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/blog-post/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -132,14 +122,11 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <ul class="section-nav">
-<li class="toc-entry toc-h3"><a href="#projection-on-tensorboard-1-part-1">Projection on Tensorboard 1 [Part 1]</a></li>
-<li class="toc-entry toc-h3"><a href="#projection-on-tensorboard-1-part-2">Projection on Tensorboard 1 [Part 2]</a></li>
-</ul><!--
+    <!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2020-05-20-tb1vis.ipynb
+# file to edit: _notebooks/2020-05-21-tb1vis.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -151,10 +138,35 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/blog-post/images/copied_from_nb/my_icons/tf1.png" alt='"TensorFlow 1"'></p>
+<h2 id="Visualisation-of-Embeddings-Using-TF1-[Not-Advisable]">Visualisation of Embeddings Using TF1 [Not Advisable]<a class="anchor-link" href="#Visualisation-of-Embeddings-Using-TF1-[Not-Advisable]"> </a></h2><blockquote><p>Exploration and Visualisation of Word Vectors Using TensorFlow 1</p>
+</blockquote>
+<ul>
+<li>toc:false - badges: true</li>
+<li>comments: true</li>
+<li>categories: [jupyter,tensorflow,python]</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The visualisation of embeddings using Tensorflow 1 is inspired from this <a href="http://www.insightsbot.com/visualize-word-embeddings-with-tensorflow">blog</a>.</p>
+<p>The above mentioned blog gives out an appropriate theoretical description but their code has become <font color="red">obsolete</font> and the required changes for the correct visualisation as well as the complete theoretical description is given in this notebook and in an updated way with TF2 blog-post.</p>
+<blockquote>FastText uses the concept that embeddings are formed based on the sub-word approach, this method helps us to visualise and obtain misspellings of a word or different spellings of the same word.</blockquote><p>As we currently have the latest Tensorflow version installed, instead of downgrading it to previous version 1, we use the following code:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow.compat.v1</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">disable_v2_behavior</span><span class="p">()</span>
+</pre></div>
+<p>This method helps us to get the behaviour of Tensorflow 1 in Tensorflow 2.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/blog-post/images/copied_from_nb/my_icons/tf1.png" alt="&quot;TensorFlow 1&quot;" /></p>
 
 </div>
 </div>
@@ -166,7 +178,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">PurePath</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#hide_output</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">PurePath</span>
 
 <span class="kn">import</span> <span class="nn">fasttext</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -184,22 +197,6 @@ window.onload = wrap_img;
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>WARNING:tensorflow:From /home/rohit/anaconda3/lib/python3.7/site-packages/tensorflow_core/python/compat/v2_compat.py:88: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
-Instructions for updating:
-non-resource variables are not supported in the long term
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -210,24 +207,11 @@ non-resource variables are not supported in the long term
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">fasttext</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">"fasttextmodel.bin"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#hide_output</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">fasttext</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;fasttextmodel.bin&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -242,7 +226,7 @@ non-resource variables are not supported in the long term
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># directory to save files to visualise on tensorboard</span>
-<span class="n">FOLDER_PATH</span> <span class="o">=</span> <span class="s2">"tb1files"</span>
+<span class="n">FOLDER_PATH</span> <span class="o">=</span> <span class="s2">&quot;tb1files&quot;</span>
 </pre></div>
 
     </div>
@@ -298,7 +282,9 @@ new
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># number of words in the dataset</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#hide_output</span>
+
+<span class="c1"># number of words in the dataset</span>
 <span class="n">VOCAB_SIZE</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_words</span><span class="p">())</span>
 
 
@@ -312,22 +298,6 @@ new
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(10891, 300)</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -390,7 +360,7 @@ new
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># path to store the words</span>
-<span class="n">tsv_file_path</span> <span class="o">=</span> <span class="n">FOLDER_PATH</span> <span class="o">+</span> <span class="s2">"/metadata.tsv"</span>
+<span class="n">tsv_file_path</span> <span class="o">=</span> <span class="n">FOLDER_PATH</span> <span class="o">+</span> <span class="s2">&quot;/metadata.tsv&quot;</span>
 </pre></div>
 
     </div>
@@ -422,7 +392,7 @@ new
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>'tb1files/metadata.tsv'</pre>
+<pre>&#39;tb1files/metadata.tsv&#39;</pre>
 </div>
 
 </div>
@@ -440,9 +410,9 @@ new
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tsv_file_path</span><span class="p">,</span> <span class="s2">"w+"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tsv_file_path</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_words</span><span class="p">()):</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">word</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># write the words to an external file</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># write the words to an external file</span>
 <span class="n">embed</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
@@ -486,14 +456,18 @@ new
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <center>
-    <h3>
-<a class="anchor" href="#projection-on-tensorboard-1-part-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Projection on Tensorboard 1 [Part 1]</h3>
-</center>
-<p>Steps for projection [Part 1]:</p>
+    <h3>Projection on Tensorboard 1 [Part 1]</h3>
+</center><p>Steps for projection [Part 1]:</p>
 <ol>
 <li>Placeholder is created of size Vocab Size * Dimension of Embeddings.</li>
 <li>Creation of a global variable to store the placeholder values.</li>
@@ -502,14 +476,12 @@ new
 </ol>
 <p><strong>Differences between TF 1 and TF 2.</strong></p>
 <ol>
-<li>
-<p>In TF1, reset default graph can be directly called by the tensorflow library to clear the default graph stack      and reset the global default graph.</p>
+<li><p>In TF1, reset default graph can be directly called by the tensorflow library to clear the default graph stack      and reset the global default graph.</p>
 <div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
 </pre></div>
 </li>
-<li>
-<p>TF 2 doesn't have the placeholders as mentioned below:</p>
-<div class="highlight"><pre><span></span><span class="n">X_init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">VOCAB_SIZE</span><span class="p">,</span> <span class="n">EMBEDDING_DIM</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"embedding"</span><span class="p">)</span>
+<li><p>TF 2 doesn't have the placeholders as mentioned below:</p>
+<div class="highlight"><pre><span></span><span class="n">X_init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">VOCAB_SIZE</span><span class="p">,</span> <span class="n">EMBEDDING_DIM</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;embedding&quot;</span><span class="p">)</span>
 </pre></div>
 </li>
 </ol>
@@ -523,6 +495,13 @@ new
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -532,7 +511,7 @@ new
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Tensorflow Placeholders</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
-<span class="n">X_init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">VOCAB_SIZE</span><span class="p">,</span> <span class="n">EMBEDDING_DIM</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"embedding"</span><span class="p">)</span>
+<span class="n">X_init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">VOCAB_SIZE</span><span class="p">,</span> <span class="n">EMBEDDING_DIM</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;embedding&quot;</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">X_init</span><span class="p">)</span>
 
 
@@ -557,14 +536,16 @@ new
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center>
-    <h3>
-<a class="anchor" href="#projection-on-tensorboard-1-part-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Projection on Tensorboard 1 [Part 2]</h3>
-</center>
-<p>Steps for projection [Part 2]:</p>
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Projection-on-Tensorboard-1-[Part-2]">Projection on Tensorboard 1 [Part 2]<a class="anchor-link" href="#Projection-on-Tensorboard-1-[Part-2]"> </a></h3><p>Steps for projection [Part 2]:</p>
 <ol>
 <li>Instantiating the projector object.</li>
 <li>Assigning the file which contains the vocabulary to the embedding variable.</li>
@@ -582,7 +563,14 @@ new
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorboard.plugins</span> <span class="kn">import</span> <span class="n">projector</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">projector</span><span class="o">.</span><span class="n">ProjectorConfig</span><span class="p">()</span>
 </pre></div>
-<p>the error received would be <code>AttributeError: module 'tensorboard.plugins.projector' has no attribute 'ProjectorConfig'</code></p>
+<p>the error received would be <code>AttributeError: module 'tensorboard.plugins.projector' has no attribute 'ProjectorConfig.'</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
 
 </div>
 </div>
@@ -597,14 +585,14 @@ new
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Configure a Tensorflow Projector</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">ProjectorConfig</span><span class="p">()</span>
 <span class="n">embed</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">embeddings</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
-<span class="n">embed</span><span class="o">.</span><span class="n">metadata_path</span> <span class="o">=</span> <span class="s2">"metadata.tsv"</span>
+<span class="n">embed</span><span class="o">.</span><span class="n">metadata_path</span> <span class="o">=</span> <span class="s2">&quot;metadata.tsv&quot;</span>
 
 <span class="c1"># Write a projector_config</span>
 <span class="n">projector</span><span class="o">.</span><span class="n">visualize_embeddings</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
 
 
 <span class="c1"># save a checkpoint</span>
-<span class="n">saver</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">TENSORBOARD_FILES_PATH</span> <span class="o">+</span> <span class="s2">"/model.ckpt"</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="n">VOCAB_SIZE</span><span class="p">)</span>
+<span class="n">saver</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">TENSORBOARD_FILES_PATH</span> <span class="o">+</span> <span class="s2">&quot;/model.ckpt&quot;</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="n">VOCAB_SIZE</span><span class="p">)</span>
 
 
 <span class="c1"># close the session</span>
@@ -618,19 +606,18 @@ new
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
 </div>
 
 
 
-  </div><!-- from https://github.com/utterance/utterances -->
-<script src="https://utteranc.es/client.js"
-        repo="rohetoric/blog-post"
-        issue-term="title"
-        label="blogpost-comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script><a class="u-url" href="/blog-post/jupyter/tensorflow/2020/05/20/tb1vis.html" hidden></a>
+  </div><a class="u-url" href="/blog-post/2020/05/21/tb1vis.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
