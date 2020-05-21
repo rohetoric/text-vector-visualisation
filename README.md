@@ -1,29 +1,91 @@
-[//]: # (This template replaces README.md when someone creates a new repo with the fastpages template.)
-
-![](https://github.com/rohetoric/blog-post/workflows/CI/badge.svg) 
-![](https://github.com/rohetoric/blog-post/workflows/GH-Pages%20Status/badge.svg) 
-[![](https://img.shields.io/static/v1?label=fastai&message=fastpages&color=57aeac&labelColor=black&style=flat&logo=data:image/png;base64,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)](https://github.com/fastai/fastpages)
-
-https://rohetoric.github.io/blog-post/
-
-# My Blog
 
 
-_powered by [fastpages](https://github.com/fastai/fastpages)_
+## Exploration & Visualisation of FastText Word Vectors Using TensorFlow 1 and 2 
 
 
-## What To Do Next?
+### Requirements and Dependencies
 
-Great!  You have setup your repo.  Now its time to start writing content.  Some helpful links:
 
-- [Writing Blogs With Jupyter](https://github.com/fastai/fastpages#writing-blog-posts-with-jupyter)
 
-- [Writing Blogs With Markdown](https://github.com/fastai/fastpages#writing-blog-posts-with-markdown)
+To run the code the following are a must to be installed:
 
-- [Writing Blog Posts With Word](https://github.com/fastai/fastpages#writing-blog-posts-with-microsoft-word)
+<p>
+    
+|Serial No|Libraries to Install|
+| :----:  |       :----:       |    
+|1.       |[FastText](https://fasttext.cc/docs/en/support.html)|
+|2.       |[TensorFlow](https://www.tensorflow.org/api_docs)|
+|3.       |[Spacy](https://spacy.io/usage)|
 
-- [(Optional) Preview Your Blog Locally](_fastpages_docs/DEVELOPMENT.md)
+</p>
 
-Note: you may want to remove example blog posts from the `_posts`,  `_notebooks` or `_word` folders (but leave them empty, don't delete these folders) if you don't want these blog posts to appear on your site.
 
-Please use the [nbdev & blogging channel](https://forums.fast.ai/c/fastai-users/nbdev/48) in the fastai forums for any questions or feature requests.
+
+### Steps to Execute
+
+
+<p>
+	
+1. Download the `bbc-text.csv` dataset from [here​](https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv) or it can be downloaded through the terminal if gcloud is already setup by the command `gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]`
+
+2. Make sure all the libraries are present/updated according to the `requirements` and `dependencies` mentioned above.
+
+3. To train the model according to the above complete dataset using FastText, run the notebook `fasttextmodeltrain.ipynb`. A pre-trained model based on the dataset has also been added named `sample-fasttextmodel.bin`. 
+
+*Note: The sample model is trained with dimension of word vector = 12 and the notebook trains a model with dimension of word vector  = 300.*
+
+According to the FastText documentation:
+
+<blockquote>The most important parameters of the model are its dimension and the range of size for the subwords. The dimension (dim) controls the size of the vectors, the larger they are the more information they can capture but requires more data to be learned. As any value in the 100-300 range is popular, the notebook has been implemented with dimension equal to 300.</blockquote>
+
+*Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are same.*
+
+---
+
+
+### To Visualise Embeddings Using TF1 [<font color='red'>NOT ADVISED</font>] 
+
+
+4. Create a folder called `tb1files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+
+5. Run the notebook ​`tb1vis.ipynb`​.
+
+6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb1files/`
+
+The above command would yield a result:
+
+
+![TB1 Command](images/cmdtb1.png)
+
+---
+
+
+### To Visualise Embeddings Using TF2 [ADVISED]
+
+
+4. Create a folder called `tb2files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+
+5. Run the notebook ​`tb2vis.ipynb`​.
+
+6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb2files/`
+
+The above command would yield a result:
+
+
+![TB2 Command](images/cmdtb2.png)
+
+
+7. Open the local host URL link present in the last line. For Example: `http://localhost:6008/`​ [in TB1 Command image].
+
+8. The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.
+
+![Projector](images/projector.png)
+
+9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.
+
+
+![TB Visualisation](images/tbvis.png)
+
+
+That's it, folks!
+</p>
