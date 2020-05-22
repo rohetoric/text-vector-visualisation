@@ -496,23 +496,30 @@ new
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Differences-between-TF-1-and-TF-2">Differences between TF 1 and TF 2<a class="anchor-link" href="#Differences-between-TF-1-and-TF-2"> </a></h3><ol>
+<h3 id="Differences-between-TF-1-and-TF-2">Differences between TF 1 and TF 2<a class="anchor-link" href="#Differences-between-TF-1-and-TF-2"> </a></h3><ul>
 <li>In TF1, reset default graph can be directly called by the tensorflow library to clear the default graph stack
-and reset the global default graph. Implemented by -</li>
-</ol>
-<div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
-</pre></div>
-<ol>
-<li>TF 2 doesn't have the <em>placeholders</em> as mentioned below: </li>
-</ol>
-<div class="highlight"><pre><span></span><span class="n">X_init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">VOCAB_SIZE</span><span class="p">,</span> <span class="n">EMBEDDING_DIM</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;embedding&quot;</span><span class="p">)</span>
-</pre></div>
-<p>It is cleared off by the disabling tf 2 behaviour defined through the import technique-</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow.compat.v1</span> <span class="k">as</span> <span class="nn">tf</span>           
-<span class="n">tf</span><span class="o">.</span><span class="n">disable_v2_behavior</span><span class="p">()</span>
-</pre></div>
-<p>If the import technique isn't followed we are subjected to receive the error:<code>AttributeError: module   'tensorflow' has no attribute 'placeholder.'</code></p>
+   and reset the global default graph. Implemented by -
 
+```python
+tf.reset_default_graph()
+```
+</li>
+
+<li>TF 2 doesn't have the placeholders as mentioned below: 
+
+```python 
+X_init = tf.placeholder(tf.float32, shape=(VOCAB_SIZE, EMBEDDING_DIM), name="embedding")
+```
+
+   It is cleared off by the disabling tf 2 behaviour defined through the import technique-
+
+```python 
+import tensorflow.compat.v1 as tf           
+tf.disable_v2_behavior()
+```
+   If the import technique isn't followed we are subjected to receive the error:`AttributeError: module   'tensorflow' has no attribute 'placeholder.'`
+</li>
+</ul>
 </div>
 </div>
 </div>

@@ -176,7 +176,7 @@ FastText uses the concept that embeddings are formed based on the sub-word appro
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/text-vector-visualisation/images/copied_from_nb/my_icons/tf2.png" alt="&quot;TensorFlow 2&quot;" /></p>
+<p><img src="/text-vector-visualisation/images/copied_from_nb/my_icons/tf2.png" alt="" /></p>
 
 </div>
 </div>
@@ -390,32 +390,42 @@ new
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Differences-between-TF-1-and-TF-2">Differences between TF 1 and TF 2<a class="anchor-link" href="#Differences-between-TF-1-and-TF-2"> </a></h3><ol>
-<li>We cannot call the reset default graph method directly from tf library which we did for TensorFlow 1. It is invoked in TF2 as: </li>
-</ol>
-<p><code>from tensorflow.python.framework import ops
-ops.reset_default_graph()</code></p>
-<ol>
-<li>There is no placeholder required here. A tf variable is created which is passed parameters. A TF variable is  shown below. Here the parameters are x: the array which contains the embeddings and name: name of the embedding file.</li>
-</ol>
-<p><code>tensor_embeddings = tf.Variable(x, name=EMBEDDINGS_TENSOR_NAME)</code>
-According to the TF2 documentation a <a href="https://www.tensorflow.org/guide/variable">tensorflow variable</a> is defined as:</p>
+<h3 id="Differences-between-TF-1-and-TF-2">Differences between TF 1 and TF 2<a class="anchor-link" href="#Differences-between-TF-1-and-TF-2"> </a></h3><ul>
+<li>We cannot call the reset default graph method directly from tf library which we did for TensorFlow 1. It is invoked in TF2 as: 
+
+```python
+from tensorflow.python.framework import ops
+ops.reset_default_graph()
+```
+</li>
+
+<li>There is no placeholder required here. A tf variable is created which is passed parameters. A TF variable is  shown below. Here the parameters are x: the array which contains the embeddings and name: name of the embedding file.
+
+`python
+tensor_embeddings = tf.Variable(x, name=EMBEDDINGS_TENSOR_NAME)
+`
+According to the TF2 documentation a <a href="https://www.tensorflow.org/guide/variable">tensorflow variable</a> is defined as:
+
 <blockquote>
 A variable maintains shared, persistent state manipulated by a program.
 
-  The *Variable()* constructor requires an initial value for the variable, which
-  can be a *Tensor* of any type and shape. This initial value defines the type
+  The Variable() constructor requires an initial value for the variable, which
+  can be a Tensor of any type and shape. This initial value defines the type
   and shape of the variable. After construction, the type and shape of the
   variable are fixed. The value can be changed using one of the assign methods.
-</blockquote><ol>
-<li>There is no concept of <code>session</code> as well as <code>saver</code> in TF2 yet. To workaround this, we just use the <code>saver</code> class for the creation of checkpoints by initialising the <code>saver</code> object with the tensorflow variable and pass <code>None</code> as value to the <code>session</code> parameter in <code>saver.save()</code>.</li>
-</ol>
-<p><code>saver = tf.compat.v1.train.Saver([tensor_embeddings])  
-saver.save(sess=None, global_step=STEP, save_path=EMBEDDINGS_FPATH)</code></p>
+</blockquote>
+</li>
 
-</div>
-</div>
-</div>
+<li>There is no concept of `session` as well as `saver` in TF2 yet. To workaround this, we just use the `saver` class for the creation of checkpoints by initialising the `saver` object with the tensorflow variable and pass `None` as value to the `session` parameter in `saver.save()`.
+
+```python
+saver = tf.compat.v1.train.Saver([tensor_embeddings])  
+saver.save(sess=None, global_step=STEP, save_path=EMBEDDINGS_FPATH)
+```
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr />
@@ -583,8 +593,10 @@ saver.save(sess=None, global_step=STEP, save_path=EMBEDDINGS_FPATH)</code></p>
 </div>
 </div>
 </div>
-</div>
+&lt;/div&gt;
+ 
 
+</li></ul></div></div></div></div>
 
 
   </div><!-- from https://github.com/utterance/utterances -->
