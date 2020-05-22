@@ -391,19 +391,20 @@ new
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Differences-between-TF-1-and-TF-2">Differences between TF 1 and TF 2<a class="anchor-link" href="#Differences-between-TF-1-and-TF-2"> </a></h3><ul>
-<li>We cannot call the reset default graph method directly from tf library which we did for TensorFlow 1. It is invoked in TF2 as: 
+<li>We cannot call the reset default graph method directly from tf library which we did for TensorFlow 1. It is invoked in TF2 as: </li>
+
 
 ```python
 from tensorflow.python.framework import ops
 ops.reset_default_graph()
 ```
-</li>
 
-<li>There is no placeholder required here. A tf variable is created which is passed parameters. A TF variable is  shown below. Here the parameters are x: the array which contains the embeddings and name: name of the embedding file.
 
-`python
+<li>There is no placeholder required here. A tf variable is created which is passed parameters. A TF variable is  shown below. Here the parameters are x: the array which contains the embeddings and name: name of the embedding file. </li>
+
+```python
 tensor_embeddings = tf.Variable(x, name=EMBEDDINGS_TENSOR_NAME)
-`
+```
 According to the TF2 documentation a <a href="https://www.tensorflow.org/guide/variable">tensorflow variable</a> is defined as:
 
 <blockquote>
@@ -414,18 +415,18 @@ A variable maintains shared, persistent state manipulated by a program.
   and shape of the variable. After construction, the type and shape of the
   variable are fixed. The value can be changed using one of the assign methods.
 </blockquote>
-</li>
 
-<li>There is no concept of `session` as well as `saver` in TF2 yet. To workaround this, we just use the `saver` class for the creation of checkpoints by initialising the `saver` object with the tensorflow variable and pass `None` as value to the `session` parameter in `saver.save()`.
+
+<li>There is no concept of `session` as well as `saver` in TF2 yet. To workaround this, we just use the `saver` class for the creation of checkpoints by initialising the `saver` object with the tensorflow variable and pass `None` as value to the `session` parameter in `saver.save()`.</li>
 
 ```python
 saver = tf.compat.v1.train.Saver([tensor_embeddings])  
 saver.save(sess=None, global_step=STEP, save_path=EMBEDDINGS_FPATH)
 ```
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</ul>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr />
@@ -593,10 +594,8 @@ saver.save(sess=None, global_step=STEP, save_path=EMBEDDINGS_FPATH)
 </div>
 </div>
 </div>
-&lt;/div&gt;
- 
+</div>
 
-</li></ul></div></div></div></div>
 
 
   </div><!-- from https://github.com/utterance/utterances -->

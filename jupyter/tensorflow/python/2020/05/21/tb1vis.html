@@ -498,27 +498,26 @@ new
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Differences-between-TF-1-and-TF-2">Differences between TF 1 and TF 2<a class="anchor-link" href="#Differences-between-TF-1-and-TF-2"> </a></h3><ul>
 <li>In TF1, reset default graph can be directly called by the tensorflow library to clear the default graph stack
-   and reset the global default graph. Implemented by -
+   and reset the global default graph. Implemented by - </li>
 
 ```python
 tf.reset_default_graph()
 ```
-</li>
 
-<li>TF 2 doesn't have the placeholders as mentioned below: 
+<li>TF 2 doesn't have the placeholders as mentioned below:</li>
 
 ```python 
 X_init = tf.placeholder(tf.float32, shape=(VOCAB_SIZE, EMBEDDING_DIM), name="embedding")
 ```
 
-   It is cleared off by the disabling tf 2 behaviour defined through the import technique-
+It is cleared off by the disabling tf 2 behaviour defined through the import technique-
 
 ```python 
 import tensorflow.compat.v1 as tf           
 tf.disable_v2_behavior()
 ```
-   If the import technique isn't followed we are subjected to receive the error:`AttributeError: module   'tensorflow' has no attribute 'placeholder.'`
-</li>
+If the import technique isn't followed we are subjected to receive the error:`AttributeError: module   'tensorflow' has no attribute 'placeholder.'`
+
 </ul>
 </div>
 </div>
