@@ -6,7 +6,7 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: Machine Learning Blog
+title: Text Vector Visualisation
 description: Visualisation of FastText Vectors Using TensorFlow 1 and 2
 github_username: rohetoric
 # you can comment the below line out if your repo name is not different than your baseurl
@@ -42,7 +42,7 @@ minima:
     linkedin: rohit-bhardwaj-a81737128
     twitter: rohetoric
     github: rohetoric
-    reddit: rohetoric
+    reddit: user/rohetoric
 
 # Set this to true to get LaTeX math equation support
 use_math: true
