@@ -2,12 +2,12 @@
 layout: home
 search_exclude: true
 ---
+<html>
 
+<center><h2> Exploration & Visualisation of FastText Word Vectors</h2></center>
+<center><h2>Using</h2></center>
+<center><h2>TensorFlow 1 and 2</h2></center>
 
-<h2> Exploration & Visualisation of FastText Word Vectors Using TensorFlow 1 and 2</h2>
-
-
-![Exploration Pipeline](images/visualise.png)
 
 
 The complete exploration-pipeline is represented as:
@@ -24,11 +24,25 @@ To run the code the following are a must to be installed:
 
 <p>
     
-|Serial No|Libraries to Install|
-| :----:  |       :----:       |    
-|1.       |[FastText](https://fasttext.cc/docs/en/support.html)|
-|2.       |[TensorFlow](https://www.tensorflow.org/api_docs)|
-|3.       |[Spacy](https://spacy.io/usage)|
+<table style="width:40%">
+  <tr>
+    <th>Serial No</th>
+    <th>Libraries to Install</th> 
+  </tr>
+  <tr>
+    <td>1.</td>
+    <td>[FastText](https://fasttext.cc/docs/en/support.html)</td>  
+  </tr>
+  <tr>
+    <td>2.</td>
+    <td>[TensorFlow](https://www.tensorflow.org/api_docs)</td>
+  </tr>
+  <tr>
+    <td>3.</td>
+    <td>[Spacy](https://spacy.io/usage)</td>
+  </tr>
+</table>
+
 
 </p>
 
@@ -39,48 +53,48 @@ To run the code the following are a must to be installed:
 
 <p>
 	
-1. Download the `bbc-text.csv` dataset from [here​](https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv) or it can be downloaded through the terminal if gcloud is already setup by the command `gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]`
+1. Download the <code>bbc-text.csv</code> dataset from [here​](https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv) or it can be downloaded through the terminal if gcloud is already setup by the command <code>gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]</code>.
 
-2. Make sure all the libraries are present/updated according to the `requirements` and `dependencies` mentioned above.
+2. Make sure all the libraries are present/updated according to the <code>requirements</code> and <code>dependencies</code> mentioned above.
 
-3. To train the model according to the above complete dataset using FastText, run the notebook `fasttextmodeltrain.ipynb`. A pre-trained model based on the dataset has also been added named `sample-fasttextmodel.bin`. 
+3. To train the model according to the above complete dataset using FastText, run the notebook <code>fasttextmodeltrain.ipynb</code>. A pre-trained model based on the dataset has also been added named <code>sample-fasttextmodel.bin</code>. 
 
-*Note: The sample model is trained with dimension of word vector = 12 and the notebook trains a model with dimension of word vector  = 300.*
+<i>Note: The sample model is trained with dimension of word vector = 12 and the notebook trains a model with dimension of word vector  = 300.</i>
 
 According to the FastText documentation:
 
 <blockquote>The most important parameters of the model are its dimension and the range of size for the subwords. The dimension (dim) controls the size of the vectors, the larger they are the more information they can capture but requires more data to be learned. As any value in the 100-300 range is popular, the notebook has been implemented with dimension equal to 300.</blockquote>
 
-*Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are same.*
+<b>Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are same.</b>
 
----
+<hr>
 
 <center>
 <h3> To Visualise Embeddings Using TF1 [<font color='red'>NOT ADVISED</font>] </h3>
 </center>
 
-4. Create a folder called `tb1files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+4. Create a folder called <code>tb1files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 
-5. Run the notebook ​`tb1vis.ipynb`​.
+5. Run the notebook ​<code>tb1vis.ipynb</code>​.
 
-6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb1files/`
+6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code>tensorboard ​ --logdir tb1files/</code>
 
 The above command would yield a result:
 
 
 ![TB1 Command](images/cmdtb1.png)
 
----
+<hr>
 
 <center>
 <h3>To Visualise Embeddings Using TF2 [ADVISED]</h3>
 </center>
 
-4. Create a folder called `tb2files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+4. Create a folder called <code>tb2files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 
-5. Run the notebook ​`tb2vis.ipynb`​.
+5. Run the notebook ​<code>tb2vis.ipynb</code>​.
 
-6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb2files/`
+6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code>tensorboard ​ --logdir tb2files/</code>.
 
 The above command would yield a result:
 
@@ -88,7 +102,7 @@ The above command would yield a result:
 ![TB2 Command](images/cmdtb2.png)
 
 
-7. Open the local host URL link present in the last line. For Example: `http://localhost:6008/`​ [in TB1 Command image].
+7. Open the local host URL link present in the last line. For Example: <code>http://localhost:6008/</code> [in TB1 Command image].
 
 8. The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.
 
@@ -102,7 +116,9 @@ The above command would yield a result:
 
 That's it, folks!
 
-
+<hr>
 </p>
 
-# Posts
+<center>
+<h3> Posts </h3>
+</center>
