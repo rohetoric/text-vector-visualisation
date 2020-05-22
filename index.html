@@ -19,27 +19,25 @@ The complete exploration-pipeline is represented as:
 
 To run the code the following are a <b>must</b> to be installed:
 
-<p> 
-<h4>  
+<p>   
 <table style="width:80%">
   <tr>
-    <th>Serial No</th>
-    <th>Libraries to Install</th> 
+    <th><h4>Serial No</h4></th>
+    <th><h4>Libraries to Install</h4></th> 
   </tr>
   <tr>
-    <td>1.</td>
-    <td><a href="https://fasttext.cc/docs/en/support.html">FastText</a></td>  
+    <td><h4>1.</h4></td>
+    <td><h4><a href="https://fasttext.cc/docs/en/support.html">FastText</a></h4></td>  
   </tr>
   <tr>
-    <td>2.</td>
-    <td><a href="https://www.tensorflow.org/api_docs">TensorFlow</a></td>
+    <td><h4>2.</h4></td>
+    <td><h4><a href="https://www.tensorflow.org/api_docs">TensorFlow</a></h4></td>
   </tr>
   <tr>
-    <td>3.</td>
-    <td><a href="https://spacy.io/usage">Spacy</a></td>
+    <td><h4>3.</h4></td>
+    <td><h4><a href="https://spacy.io/usage">Spacy</a></h4></td>
   </tr>
 </table>
-</h4>
 </p>
 
 
@@ -48,13 +46,13 @@ To run the code the following are a <b>must</b> to be installed:
 
 <h4>
 <p>	
-1. Download the <code>bbc-text.csv</code> dataset from <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">here</a> or it can be downloaded through the terminal if gcloud is already setup by the command <code>gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]</code>.
+1. Download the <code>bbc-text.csv</code> dataset from <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">here</a> or it can be downloaded through the terminal if gcloud is already setup by the command: <br><code>gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]</code>.
 </p>
 <p>
-2. Make sure all the libraries are present/updated according to the <code>requirements</code> and <code>dependencies</code> mentioned above.
+2. Make sure all the libraries are present/updated according to the <u>requirements</u> mentioned above.
 </p>
 <p>
-3. To train the model according to the above complete dataset using FastText, run the notebook <code>fasttextmodeltrain.ipynb</code>. A pre-trained model based on the dataset has also been added named <code>sample-fasttextmodel.bin</code></li>
+3. To train the model according to the above complete dataset using FastText, run the notebook <u>fasttextmodeltrain.ipynb</u>. A pre-trained model based on the dataset has also been added named <u>sample-fasttextmodel.bin</u></li> in the repository.
 </p>
 <p>
 <i>Note: The sample model is trained with dimension of word vector = 12 and the notebook trains a model with dimension of word vector  = 300.</i>
@@ -63,7 +61,7 @@ To run the code the following are a <b>must</b> to be installed:
 According to the FastText documentation:
 </p>
 <p>
-<blockquote>The most important parameters of the model are its dimension and the range of size for the subwords. The dimension (dim) controls the size of the vectors, the larger they are the more information they can capture but requires more data to be learned. As any value in the 100-300 range is popular, the notebook has been implemented with dimension equal to 300.</blockquote>
+<blockquote><h4>The most important parameters of the model are its dimension and the range of size for the subwords. The dimension controls the size of the vectors, the larger they are the more information they can capture but requires more data to be learned. As any value in the 100-300 range is popular, the notebook has been implemented with dimension equal to 300.</h4></blockquote>
 </p>
 <p>
 <b>Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are same.</b>
@@ -72,14 +70,14 @@ According to the FastText documentation:
 <hr>
 
 <center>
-<h3> To Visualise Embeddings Using TF1 [<font color='red'>NOT ADVISED</font>] </h3>
+<h3><b>To Visualise Embeddings Using TF1 [<font color='red'>NOT ADVISED</font>]</b></h3>
 </center>
 
 <p>
-4. Create a folder called <code>tb1files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+4. Create a folder called <u>tb1files</u> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 </p>
 <p>
-5. Run the notebook ​<code>tb1vis.ipynb</code>​.
+5. Run the notebook ​<u>tb1vis.ipynb</u>​.
 </p>
 <p>
 6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code>tensorboard ​ --logdir tb1files/</code>
@@ -95,14 +93,14 @@ The above command would yield a result:
 <hr>
 
 <center>
-<h3>To Visualise Embeddings Using TF2 [ADVISED]</h3>
+<h3><b>To Visualise Embeddings Using TF2 [<font color='green'>ADVISED</font>]</b></h3>
 </center>
 
 <p>
-4. Create a folder called <code>tb2files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+4. Create a folder called <u>tb2files</u> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 </p>
 <p>
-5. Run the notebook ​<code>tb2vis.ipynb</code>​.
+5. Run the notebook ​<u>tb2vis.ipynb</u>​.
 </p>
 <p>
 6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code>tensorboard ​ --logdir tb2files/</code>.
@@ -114,6 +112,8 @@ The above command would yield a result:
 <p>
 <img src="images/cmdtb2.png" alt="TB2 Terminal Command"> 
 </p>
+
+<hr>
 
 <p>
 7. Open the local host URL link present in the last line. For Example: <code>http://localhost:6008/</code> [in TB1 Command image].
@@ -127,7 +127,7 @@ The above command would yield a result:
 </p>
 
 <p>
-9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.
+9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example <b>‘plea’</b> shown below.
 </p>
 
 <p>
