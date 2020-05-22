@@ -166,11 +166,10 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The visualisation of embeddings using Tensorflow 1 is inspired from this <a href="http://www.insightsbot.com/visualize-word-embeddings-with-tensorflow">blog</a>.</p>
 <p>The above mentioned blog gives out an appropriate theoretical description but their code has become <font color="red">obsolete</font> and the required changes for the correct visualisation as well as the complete theoretical description is given in this notebook and in an updated way with TF2 blog-post.</p>
-<blockquote>FastText uses the concept that embeddings are formed based on the sub-word approach, this method helps us to visualise and obtain misspellings of a word or different spellings of the same word.</blockquote><p>As we currently have the latest Tensorflow version installed, instead of downgrading it to previous version 1, we use the following code:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow.compat.v1</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">disable_v2_behavior</span><span class="p">()</span>
-</pre></div>
-<p>This method helps us to get the behaviour of Tensorflow 1 in Tensorflow 2.</p>
+<blockquote>FastText uses the concept that embeddings are formed based on the sub-word approach, this method helps us to visualise and obtain misspellings of a word or different spellings of the same word.</blockquote><p>As we currently have the latest Tensorflow version installed, instead of downgrading it to previous version 1, we use the following code:
+<code>import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()</code>
+This method helps us to get the behaviour of Tensorflow 1 in Tensorflow 2.</p>
 
 </div>
 </div>
@@ -487,19 +486,15 @@ new
 </ol>
 <p><strong>Differences between TF 1 and TF 2.</strong></p>
 <ol>
-<li><p>In TF1, reset default graph can be directly called by the tensorflow library to clear the default graph stack      and reset the global default graph.</p>
-<div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
-</pre></div>
+<li><p>In TF1, reset default graph can be directly called by the tensorflow library to clear the default graph stack      and reset the global default graph. Implemented by -<code>tf.reset_default_graph()</code></p>
 </li>
 <li><p>TF 2 doesn't have the placeholders as mentioned below:</p>
-<div class="highlight"><pre><span></span><span class="n">X_init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">VOCAB_SIZE</span><span class="p">,</span> <span class="n">EMBEDDING_DIM</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;embedding&quot;</span><span class="p">)</span>
-</pre></div>
+<p><code>X_init = tf.placeholder(tf.float32, shape=(VOCAB_SIZE, EMBEDDING_DIM), name="embedding")</code></p>
 </li>
 </ol>
 <p>It is cleared off by the disabling tf 2 behaviour defined through the import technique [already done in cell 1]:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow.compat.v1</span> <span class="k">as</span> <span class="nn">tf</span>
-   <span class="n">tf</span><span class="o">.</span><span class="n">disable_v2_behavior</span><span class="p">()</span>
-</pre></div>
+<p><code>import tensorflow.compat.v1 as tf
+   tf.disable_v2_behavior()</code></p>
 <p>without which we would get the following error:
   <code>AttributeError: module 'tensorflow' has no attribute 'placeholder'</code></p>
 
@@ -560,21 +555,17 @@ new
 <ol>
 <li>Instantiating the projector object.</li>
 <li>Assigning the file which contains the vocabulary to the embedding variable.</li>
-<li>Writing the configuration file for the projector read by the tensorboard using-<div class="highlight"><pre><span></span><span class="n">projector</span><span class="o">.</span><span class="n">visualize_embeddings</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
-</pre></div>
-</li>
+<li>Writing the configuration file for the projector read by the tensorboard using  <code>projector.visualize_embeddings(writer, config)</code></li>
 <li>Saving the checkpoint and closing the connection.</li>
 </ol>
 <p>Here both the projector imports are important [already imported in cell 1] i.e.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorboard.plugins</span> <span class="kn">import</span> <span class="n">projector</span>
-<span class="kn">from</span> <span class="nn">tensorboard.plugins.projector</span> <span class="kn">import</span> <span class="n">ProjectorConfig</span>
-</pre></div>
-<p>as <code>visualize_embeddings()</code> function is defined under <code>projector</code> and we need <code>ProjectorConfig()</code> in creation for  the configuration file of the projector.</p>
-<p>If the projector is imported in the following way:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorboard.plugins</span> <span class="kn">import</span> <span class="n">projector</span>
-<span class="n">config</span> <span class="o">=</span> <span class="n">projector</span><span class="o">.</span><span class="n">ProjectorConfig</span><span class="p">()</span>
-</pre></div>
-<p>the error received would be <code>AttributeError: module 'tensorboard.plugins.projector' has no attribute 'ProjectorConfig.'</code></p>
+<p><code>from tensorboard.plugins import projector
+from tensorboard.plugins.projector import ProjectorConfig</code>
+as <code>visualize_embeddings()</code> function is defined under <code>projector</code> and we need <code>ProjectorConfig()</code> in creation for  the configuration file of the projector.</p>
+<p>If the projector is imported in the following way:
+<code>from tensorboard.plugins import projector
+config = projector.ProjectorConfig()</code>
+the error received would be <code>AttributeError: module 'tensorboard.plugins.projector' has no attribute 'ProjectorConfig.'</code></p>
 
 </div>
 </div>

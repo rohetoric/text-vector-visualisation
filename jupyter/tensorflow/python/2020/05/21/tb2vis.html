@@ -370,42 +370,48 @@ new
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<center>
-    <h3>Projection on Tensorboard 2</h3>
-</center><p>Steps for projection:</p>
+<h3 id="Projection-on-Tensorboard-2">Projection on Tensorboard 2<a class="anchor-link" href="#Projection-on-Tensorboard-2"> </a></h3><p>Steps for projection:</p>
 <ol>
 <li>Define the function <code>register_embedding()</code> and <code>save_label_tsv()</code> to configure the projector as well as save the projector configuration files and metadata file to the same folder.</li>
 <li>Initialise the path variables accordingly and call the above function with suitable path variables as shown in below cells.</li>
 <li>Creation of the tensorflow variable instead of tensorflow placeholder.</li>
 <li>A saver class object is initialised and checkpoint is created. </li>
 </ol>
-<p><strong>Differences between TF 1 and TF 2.</strong></p>
-<ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Differences-between-TF-1-and-TF-2">Differences between TF 1 and TF 2<a class="anchor-link" href="#Differences-between-TF-1-and-TF-2"> </a></h3><ol>
 <li>We cannot call the reset default graph method directly from tf library which we did for TensorFlow 1. It is invoked in TF2 as: </li>
 </ol>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.python.framework</span> <span class="kn">import</span> <span class="n">ops</span>
-<span class="n">ops</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
-</pre></div>
+<p><code>from tensorflow.python.framework import ops
+ops.reset_default_graph()</code></p>
 <ol>
 <li>There is no placeholder required here. A tf variable is created which is passed parameters. A TF variable is  shown below. Here the parameters are x: the array which contains the embeddings and name: name of the embedding file.</li>
 </ol>
-<div class="highlight"><pre><span></span><span class="n">tensor_embeddings</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">EMBEDDINGS_TENSOR_NAME</span><span class="p">)</span>
-</pre></div>
-<p>According to the TF2 documentation a <a href="https://www.tensorflow.org/guide/variable">tensorflow variable</a> is defined as:</p>
+<p><code>tensor_embeddings = tf.Variable(x, name=EMBEDDINGS_TENSOR_NAME)</code>
+According to the TF2 documentation a <a href="https://www.tensorflow.org/guide/variable">tensorflow variable</a> is defined as:</p>
 <blockquote>
-
 A variable maintains shared, persistent state manipulated by a program.
 
-  The `Variable()` constructor requires an initial value for the variable, which
-  can be a `Tensor` of any type and shape. This initial value defines the type
+  The *Variable()* constructor requires an initial value for the variable, which
+  can be a *Tensor* of any type and shape. This initial value defines the type
   and shape of the variable. After construction, the type and shape of the
   variable are fixed. The value can be changed using one of the assign methods.
 </blockquote><ol>
 <li>There is no concept of <code>session</code> as well as <code>saver</code> in TF2 yet. To workaround this, we just use the <code>saver</code> class for the creation of checkpoints by initialising the <code>saver</code> object with the tensorflow variable and pass <code>None</code> as value to the <code>session</code> parameter in <code>saver.save()</code>.</li>
 </ol>
-<div class="highlight"><pre><span></span><span class="n">saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">([</span><span class="n">tensor_embeddings</span><span class="p">])</span>  
-<span class="n">saver</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sess</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="n">STEP</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="n">EMBEDDINGS_FPATH</span><span class="p">)</span>
-</pre></div>
+<p><code>saver = tf.compat.v1.train.Saver([tensor_embeddings])  
+saver.save(sess=None, global_step=STEP, save_path=EMBEDDINGS_FPATH)</code></p>
 
 </div>
 </div>
