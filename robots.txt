@@ -1,1 +1,1 @@
-Sitemap: https://rohetoric.github.io/blog-post/sitemap.xml
+Sitemap: https://rohetoric.github.io/text-vector-visualisation/sitemap.xml
