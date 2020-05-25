@@ -8,9 +8,8 @@ search_exclude: true
 	table, th, td {
     width: 50%;
     margin-left: auto;
-    height: 20px;
-    line-height: 30px;
     margin-right: auto;
+    height: 40px;
     border: 1px solid black;
     border-collapse: collapse;
 }
@@ -72,7 +71,7 @@ search_exclude: true
 3. To train the model according to the above complete dataset using FastText, run the notebook given <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html">here</a>. A pre-trained model based on the dataset can be downloaded from <a href="https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM">here</a> and there is also a pre trained sample model called <u>sample-fasttextmodel.bin</u> in the repository.
 </p>
 <p>
-<i>Note: The sample pre trained model in the link is trained with dimension of word vector = 300 and in the repository is trained with dimension of word vector = 12 (because of 100 MB github file size per push),so prefer downloading the model from the link.</i>
+<i>Note: The sample pre trained model in the link is trained with dimension of word vector = 300 and in the repository is trained with dimension of word vector = 12 (because of 100 MB github file size per push), so prefer downloading the model from the link.</i>
 </p>
 <p>
 According to the FastText documentation:
@@ -94,7 +93,7 @@ According to the FastText documentation:
 4. Create a folder called <u>tb1files</u> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 </p>
 <p>
-5. Run the notebook ​<u>tb1vis.ipynb</u>​.
+5. Run the notebook ​present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb1vis.html">here</a>​.
 </p>
 <p>
 6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code>tensorboard ​--logdir tb1files/</code>
@@ -117,7 +116,7 @@ The above command would yield a result:
 4. Create a folder called <u>tb2files</u> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 </p>
 <p>
-5. Run the notebook ​<u>tb2vis.ipynb</u>​.
+5. Run the notebook ​present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb2vis.html">here</a>.
 </p>
 <p>
 6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code>tensorboard ​--logdir tb2files/</code>.
@@ -151,7 +150,7 @@ The above command would yield a result:
 <div style="display: flex; justify-content: center;">
   <img src="images/tbvis.png" alt = "Visualisation on Tensorboard" style="width: auto; height: 350px;" />
 </div>
-
+<br>
 <p>
 That's it, folks!
 </p>
