@@ -3,7 +3,6 @@ toc: false
 image
 layout: post
 comments: true
-image: true
 hide: false
 search_exclude: true
 description: A complete guide on the requirements needed and the step by step execution of the exploration-pipeline.
