@@ -29,7 +29,7 @@ To run the code the following are a must to be installed:
 
 2. Make sure all the libraries are present/updated according to the `requirements` and `dependencies` mentioned above.
 
-3. To train the model according to the above complete dataset using FastText, run the notebook `fasttextmodeltrain.ipynb` present in `_notebooks` folder. A pre-trained model (2.4GB size) based on the dataset can be downloaded from [here](https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM). 
+3. To train the model according to the above complete dataset using FastText, run the notebook present [here](https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html) or the notebook `fasttextmodeltrain.ipynb` present in `_notebooks` folder of the repository. A pre-trained model (2.4GB size) based on the dataset can be downloaded from [here](https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM). 
 
 According to the FastText documentation:
 
@@ -45,43 +45,42 @@ According to the FastText documentation:
 
 4. Create a folder called `tb1files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 
-5. Run the notebook ​`tb1vis.ipynb` present in `_notebooks` folder​.
+5. Run the notebook ​present [here](https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb1vis.html) or the notebook `tb1vis.ipynb` present in `_notebooks` folder​ of the repository.
 
-6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb1files/`
+6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​--logdir tb1files/`
 
 The above command would yield a result:
 
 
-![TB1 Command](../images/cmdtb1.png)
+![TB1 Command](image/cmdtb1.png)
 
 ---
 
-### To Visualise Embeddings Using TF2 [ADVISED]
+### To Visualise Embeddings Using TF2 [<font color='green'>ADVISED</font>]
 
 
 4. Create a folder called `tb2files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 
-5. Run the notebook ​`tb2vis.ipynb`​ present in `_notebooks` folder​.
+5. Run the notebook present [here](https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb2vis.html) or ​the notebook `tb2vis.ipynb`​ present in `_notebooks` folder​ of the repository.
 
-6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb2files/`
+6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​--logdir tb2files/`
 
 The above command would yield a result:
 
 
-![TB2 Command](../images/cmdtb2.png)
+![TB2 Command](image/cmdtb2.png)
 
 
 7. Open the local host URL link present in the last line. For Example: `http://localhost:6008/`​ [in TB1 Command image].
 
 8. The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.
 
-![Projector](../images/projector.png)
+![Projector](image/projector.png)
 
 9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.
 
 
-![TB Visualisation](../images/tbvis.png)
+![TB Visualisation](image/tbvis.png)
 
 
 That's it, folks!
-</p>
