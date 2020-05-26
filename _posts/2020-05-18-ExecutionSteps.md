@@ -1,6 +1,5 @@
 ---
 toc: false
-image
 layout: post
 comments: true
 hide: false
