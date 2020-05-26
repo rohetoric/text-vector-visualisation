@@ -63,7 +63,6 @@ exclude:
   - action.yml
   - Makefile
   - _posts/2020-01-14-test-markdown-post.md
-  - _posts/README.md
 
 # this setting allows you to keep pages organized in the _pages folder
 include:
