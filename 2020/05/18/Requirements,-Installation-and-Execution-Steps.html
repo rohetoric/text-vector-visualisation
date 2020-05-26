@@ -1,82 +1,111 @@
 
-<h1 id="exploration--visualisation-of-fasttext-word-vectors-using-tensorflow-1-and-2">Exploration &amp; Visualisation of FastText Word Vectors Using TensorFlow 1 and 2</h1>
+<h1 id="requirements-and-execution-steps">Requirements and Execution Steps</h1>
+
+<p>This blog-post gives the requirements needed and step-by-step execution to generate FastText vectors as well as visualise them on Tensorboard.</p>
 
 <h2 id="requirements-and-dependencies">Requirements and Dependencies</h2>
 
 <p>To run the code the following are a must to be installed:</p>
 
-<p>
-    
-|Serial No|Libraries to Install|
-| :----:  |       :----:       |    
-|1.       |[FastText](https://fasttext.cc/docs/en/support.html)|
-|2.       |[TensorFlow](https://www.tensorflow.org/api_docs)|
-|3.       |[Spacy](https://spacy.io/usage)|
-
-</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Serial No</th>
+      <th style="text-align: center">Libraries to Install</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1.</td>
+      <td style="text-align: center"><a href="https://fasttext.cc/docs/en/support.html">FastText</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2.</td>
+      <td style="text-align: center"><a href="https://www.tensorflow.org/api_docs">TensorFlow</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3.</td>
+      <td style="text-align: center"><a href="https://spacy.io/usage">Spacy</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="steps-to-execute">Steps to Execute</h3>
 
-<p>
-	
-1. Download the `bbc-text.csv` dataset from [here​](https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv) or it can be downloaded through the terminal if gcloud is already setup by the command `gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]`
+<ol>
+  <li>
+    <p>Download the <code class="highlighter-rouge">bbc-text.csv</code> dataset from <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">here​</a> or it can be downloaded through the terminal if gcloud is already setup by the command <code class="highlighter-rouge">gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]</code></p>
+  </li>
+  <li>
+    <p>Make sure all the libraries are present/updated according to the <code class="highlighter-rouge">requirements</code> and <code class="highlighter-rouge">dependencies</code> mentioned above.</p>
+  </li>
+  <li>
+    <p>To train the model according to the above complete dataset using FastText, run the notebook <code class="highlighter-rouge">fasttextmodeltrain.ipynb</code> present in <code class="highlighter-rouge">_notebooks</code> folder. A pre-trained model (2.4GB size) based on the dataset can be downloaded from <a href="https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM">here</a>.</p>
+  </li>
+</ol>
 
-2. Make sure all the libraries are present/updated according to the `requirements` and `dependencies` mentioned above.
-
-3. To train the model according to the above complete dataset using FastText, run the notebook `fasttextmodeltrain.ipynb` present in `_notebooks` folder. A pre-trained model (2.4GB size) based on the dataset can be downloaded from [here](https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM). 
-
-According to the FastText documentation:
+<p>According to the FastText documentation:</p>
 
 <blockquote>The most important parameters of the model are its dimension and the range of size for the subwords. The dimension (dim) controls the size of the vectors, the larger they are the more information they can capture but requires more data to be learned. As any value in the 100-300 range is popular, the notebook has been implemented with dimension equal to 300.</blockquote>
 
-*Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are same.*
+<p><em>Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are same.</em></p>
 
----
+<hr />
 
+<h3 id="to-visualise-embeddings-using-tf1-not-advised">To Visualise Embeddings Using TF1 [<font color="red">NOT ADVISED</font>]</h3>
 
-### To Visualise Embeddings Using TF1 [<font color="red">NOT ADVISED</font>] 
+<ol>
+  <li>
+    <p>Create a folder called <code class="highlighter-rouge">tb1files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.</p>
+  </li>
+  <li>
+    <p>Run the notebook ​<code class="highlighter-rouge">tb1vis.ipynb</code> present in <code class="highlighter-rouge">_notebooks</code> folder​.</p>
+  </li>
+  <li>
+    <p>Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code class="highlighter-rouge">tensorboard ​ --logdir tb1files/</code></p>
+  </li>
+</ol>
 
+<p>The above command would yield a result:</p>
 
-4. Create a folder called `tb1files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+<p><img src="../images/cmdtb1.png" alt="TB1 Command" /></p>
 
-5. Run the notebook ​`tb1vis.ipynb` present in `_notebooks` folder​.
+<hr />
 
-6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb1files/`
+<h3 id="to-visualise-embeddings-using-tf2-advised">To Visualise Embeddings Using TF2 [ADVISED]</h3>
 
-The above command would yield a result:
+<ol>
+  <li>
+    <p>Create a folder called <code class="highlighter-rouge">tb2files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.</p>
+  </li>
+  <li>
+    <p>Run the notebook ​<code class="highlighter-rouge">tb2vis.ipynb</code>​ present in <code class="highlighter-rouge">_notebooks</code> folder​.</p>
+  </li>
+  <li>
+    <p>Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code class="highlighter-rouge">tensorboard ​ --logdir tb2files/</code></p>
+  </li>
+</ol>
 
+<p>The above command would yield a result:</p>
 
-![TB1 Command](../images/cmdtb1.png)
+<p><img src="../images/cmdtb2.png" alt="TB2 Command" /></p>
 
----
+<ol>
+  <li>
+    <p>Open the local host URL link present in the last line. For Example: <code class="highlighter-rouge">http://localhost:6008/</code>​ [in TB1 Command image].</p>
+  </li>
+  <li>
+    <p>The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.</p>
+  </li>
+</ol>
 
+<p><img src="../images/projector.png" alt="Projector" /></p>
 
-### To Visualise Embeddings Using TF2 [ADVISED]
+<ol>
+  <li>This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.</li>
+</ol>
 
+<p><img src="../images/tbvis.png" alt="TB Visualisation" /></p>
 
-4. Create a folder called `tb2files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+<p>That’s it, folks!</p>
 
-5. Run the notebook ​`tb2vis.ipynb`​ present in `_notebooks` folder​.
-
-6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb2files/`
-
-The above command would yield a result:
-
-
-![TB2 Command](../images/cmdtb2.png)
-
-
-7. Open the local host URL link present in the last line. For Example: `http://localhost:6008/`​ [in TB1 Command image].
-
-8. The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.
-
-![Projector](../images/projector.png)
-
-9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.
-
-
-![TB Visualisation](../images/tbvis.png)
-
-
-That's it, folks!
-</p>
