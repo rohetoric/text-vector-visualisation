@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Generating Word Vectors Using FastText Blog-Post | Text Vector Visualisation</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Generating Word Vectors Using FastText Blog-Post" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Conversion of words in the vocabulary of the dataset to vectors using FastText." />
+<meta property="og:description" content="Conversion of words in the vocabulary of the dataset to vectors using FastText." />
+<link rel="canonical" href="https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html" />
+<meta property="og:url" content="https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html" />
+<meta property="og:site_name" content="Text Vector Visualisation" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html"},"description":"Conversion of words in the vocabulary of the dataset to vectors using FastText.","@type":"BlogPosting","url":"https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html","headline":"Generating Word Vectors Using FastText Blog-Post","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/text-vector-visualisation/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rohetoric.github.io/text-vector-visualisation/feed.xml" title="Text Vector Visualisation" /><link rel="shortcut icon" type="image/x-icon" href="/text-vector-visualisation/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Generating Word Vectors Using FastText Blog-Post | Text Vector Visualisation</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Generating Word Vectors Using FastText Blog-Post" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Conversion of words in the vocabulary of the dataset to vectors using FastText." />
+<meta property="og:description" content="Conversion of words in the vocabulary of the dataset to vectors using FastText." />
+<link rel="canonical" href="https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html" />
+<meta property="og:url" content="https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html" />
+<meta property="og:site_name" content="Text Vector Visualisation" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html"},"description":"Conversion of words in the vocabulary of the dataset to vectors using FastText.","@type":"BlogPosting","url":"https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html","headline":"Generating Word Vectors Using FastText Blog-Post","dateModified":"2020-05-20T00:00:00-05:00","datePublished":"2020-05-20T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://rohetoric.github.io/text-vector-visualisation/feed.xml" title="Text Vector Visualisation" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/text-vector-visualisation/">Text Vector Visualisation</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/text-vector-visualisation/about/">About Me</a><a class="page-link" href="/text-vector-visualisation/search/">Search</a><a class="page-link" href="/text-vector-visualisation/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Generating Word Vectors Using FastText Blog-Post</h1><p class="page-description">Conversion of words in the vocabulary of the dataset to vectors using FastText.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-20T00:00:00-05:00" itemprop="datePublished">
+        May 20, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/text-vector-visualisation/categories/#jupyter">jupyter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/text-vector-visualisation/categories/#fasttext">fasttext</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/text-vector-visualisation/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/rohetoric/text-vector-visualisation/tree/master/_notebooks/2020-05-20-fasttext-model-train.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/text-vector-visualisation/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/rohetoric/text-vector-visualisation/blob/master/_notebooks/2020-05-20-fasttext-model-train.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/text-vector-visualisation/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-05-20-fasttext-model-train.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/text-vector-visualisation/images/copied_from_nb/my_icons/fasttext.png" alt="&quot;FastText&quot;" /></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="kn">import</span> <span class="nn">fasttext</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">spacy.lang.en</span> <span class="kn">import</span> <span class="n">English</span>
+<span class="kn">from</span> <span class="nn">spacy.lang.en.stop_words</span> <span class="kn">import</span> <span class="n">STOP_WORDS</span>
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">English</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The dataset can be downloaded through:</p>
+<ol>
+<li><p>Terminal:
+<code>gsutil cp gs://dataset-uploader/bbc/bbc-text.csv</code></p>
+
+<pre><code>              OR</code></pre>
+</li>
+<li><p>Visiting this <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">website</a> from the browser.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;bbc-text.csv&quot;</span><span class="p">)</span>  <span class="c1"># reading the dataset</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">file</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>tech</td>
+      <td>tv future in the hands of viewers with home th...</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>business</td>
+      <td>worldcom boss  left books alone  former worldc...</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>sport</td>
+      <td>tigers wary of farrell  gamble  leicester say ...</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>sport</td>
+      <td>yeading face newcastle in fa cup premiership s...</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>entertainment</td>
+      <td>ocean s twelve raids box office ocean s twelve...</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>2220</td>
+      <td>business</td>
+      <td>cars pull down us retail figures us retail sal...</td>
+    </tr>
+    <tr>
+      <td>2221</td>
+      <td>politics</td>
+      <td>kilroy unveils immigration policy ex-chatshow ...</td>
+    </tr>
+    <tr>
+      <td>2222</td>
+      <td>entertainment</td>
+      <td>rem announce new glasgow concert us band rem h...</td>
+    </tr>
+    <tr>
+      <td>2223</td>
+      <td>politics</td>
+      <td>how political squabbles snowball it s become c...</td>
+    </tr>
+    <tr>
+      <td>2224</td>
+      <td>sport</td>
+      <td>souness delight at euro progress boss graeme s...</td>
+    </tr>
+  </tbody>
+</table>
+<p>2225 rows × 2 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># don&#39;t need the labels for the text</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>tv future in the hands of viewers with home th...</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>worldcom boss  left books alone  former worldc...</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>tigers wary of farrell  gamble  leicester say ...</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>yeading face newcastle in fa cup premiership s...</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>ocean s twelve raids box office ocean s twelve...</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>2220</td>
+      <td>cars pull down us retail figures us retail sal...</td>
+    </tr>
+    <tr>
+      <td>2221</td>
+      <td>kilroy unveils immigration policy ex-chatshow ...</td>
+    </tr>
+    <tr>
+      <td>2222</td>
+      <td>rem announce new glasgow concert us band rem h...</td>
+    </tr>
+    <tr>
+      <td>2223</td>
+      <td>how political squabbles snowball it s become c...</td>
+    </tr>
+    <tr>
+      <td>2224</td>
+      <td>souness delight at euro progress boss graeme s...</td>
+    </tr>
+  </tbody>
+</table>
+<p>2225 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">refined_string_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">token_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">filtered_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]:</span>
+    
+    <span class="c1"># removing punctuations from string</span>
+    <span class="n">string_translate</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span>
+        <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
+    <span class="p">)</span>  
+
+    <span class="c1"># initialise string to english langauge functions of spacy</span>
+    <span class="n">spacy_doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span>
+        <span class="n">string_translate</span>
+    <span class="p">)</span>  
+
+    <span class="c1"># appending empty list with tokenised string</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">spacy_doc</span><span class="p">:</span>
+        <span class="n">token_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>  
+
+    <span class="c1"># checking if tokenised word exists in a given list of stopwords obtained     </span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">token_list</span><span class="p">:</span>
+        <span class="n">lexeme</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span>
+            <span class="n">word</span>
+        <span class="p">]</span>  
+        <span class="k">if</span> <span class="n">lexeme</span><span class="o">.</span><span class="n">is_stop</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">filtered_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">word</span>
+            <span class="p">)</span>  
+
+    <span class="c1"># converting list of tokenised words without stopwords to sentence</span>
+    <span class="n">filtered_sentence</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">filtered_list</span>
+    <span class="p">)</span>  
+
+    <span class="c1"># removing multiple spaces from the string</span>
+    <span class="n">filtered_sentence</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="s2">&quot; +&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">filtered_sentence</span>
+    <span class="p">)</span>  
+
+    <span class="c1"># appending the list with strings without stop words</span>
+    <span class="n">refined_string_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">filtered_sentence</span>
+    <span class="p">)</span>  
+
+    <span class="c1"># reinitialising the lists</span>
+    <span class="n">token_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">filtered_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">refined_string_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;tv future hands viewers home theatre systems plasma highdefinition tvs digital video recorders moving living room way people watch tv radically different years time according expert panel gathered annual consumer electronics las vegas discuss new technologies impact favourite pastimes leading trend programmes content delivered viewers home networks cable satellite telecoms companies broadband service providers rooms portable devices talkedabout technologies ces digital personal video recorders dvr pvr settop boxes like s tivo uk s sky system allow people record store play pause forward wind tv programmes want essentially technology allows personalised tv builtin highdefinition tv sets big business japan slower europe lack highdefinition programming people forward wind adverts forget abiding network channel schedules putting alacarte entertainment networks cable satellite companies worried means terms advertising revenues brand identity viewer loyalty channels leads technology moment concern raised europe particularly growing uptake services like sky happens today months years time uk adam hume bbc broadcast s futurologist told bbc news website likes bbc issues lost advertising revenue pressing issue moment commercial uk broadcasters brand loyalty important talking content brands network brands said tim hanlon brand communications firm starcom mediavest reality broadband connections anybody producer content added challenge hard promote programme choice means said stacey jolna senior vice president tv guide tv group way people find content want watch simplified tv viewers means networks terms channels leaf google s book search engine future instead scheduler help people find want watch kind channel model work younger ipod generation taking control gadgets play suit panel recognised older generations comfortable familiar schedules channel brands know getting want choice hands mr hanlon suggested end kids diapers pushing buttons possible available said mr hanlon ultimately consumer tell market want 50 000 new gadgets technologies showcased ces enhancing tvwatching experience highdefinition tv sets new models lcd liquid crystal display tvs launched dvr capability built instead external boxes example launched humax s 26inch lcd tv 80hour tivo dvr dvd recorder s biggest satellite tv companies directtv launched branded dvr 100hours recording capability instant replay search function set pause rewind tv 90 hours microsoft chief bill gates announced preshow keynote speech partnership tivo called tivotogo means people play recorded programmes windows pcs mobile devices reflect increasing trend freeing multimedia people watch want want&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;refined-bbc-text.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">refined_string_list</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">item</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># &lt;--TRAINING THE MODEL BASED ON FASTTEXT--&gt;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fasttext</span><span class="o">.</span><span class="n">train_unsupervised</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+    Train an unsupervised model and return a model object.
+
+    input must be a filepath. The input text does not need to be tokenized
+    as per the tokenize function, but it must be preprocessed and encoded
+    as UTF-8. You might want to consult standard preprocessing scripts such
+    as tokenizer.perl mentioned here: http://www.statmt.org/wmt07/baseline.html
+
+    The input field must not contain any labels or use the specified label prefix
+    unless it is ok for those words to be ignored. For an example consult the
+    dataset pulled by the example script word-vector-example.sh, which is
+    part of the fastText repository.
+    
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Default Configuration for parameters mentioned in [ ] for fasttext.train_unsupervised():</p>
+
+<pre><code>input             # training file path (required)
+model             # unsupervised fasttext model {cbow, skipgram} [skipgram]
+lr                # learning rate [0.05]
+dim               # size of word vectors [100]
+ws                # size of the context window [5]
+epoch             # number of epochs [5]
+minCount          # minimal number of word occurences [5]
+minn              # min length of char ngram [3]
+maxn              # max length of char ngram [6]
+neg               # number of negatives sampled [5]
+wordNgrams        # max length of word ngram [1]
+loss              # loss function {ns, hs, softmax, ova} [ns]
+bucket            # number of buckets [2000000]
+lrUpdateRate      # change the rate of updates for the learning rate [100]
+t                 # sampling threshold [0.0001]
+verbose           # verbose [2]</code></pre>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">fasttext</span><span class="o">.</span><span class="n">train_unsupervised</span><span class="p">(</span><span class="s2">&quot;refined-bbc-text.txt&quot;</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">thread</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 2min 34s, sys: 1.14 s, total: 2min 35s
+Wall time: 46.2 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;tensorboard/metadata.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">item</span>
+        <span class="p">)</span>  <span class="c1"># writing the vocabulary words of the model to a text file</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="s2">&quot;fasttextmodel.bin&quot;</span><span class="p">)</span>  <span class="c1"># saving the model</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="rohetoric/text-vector-visualisation"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/text-vector-visualisation/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/text-vector-visualisation/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/text-vector-visualisation/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Visualisation of FastText Vectors Using TensorFlow 1 and 2</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/rohetoric" title="rohetoric"><svg class="svg-icon grey"><use xlink:href="/text-vector-visualisation/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/rohit-bhardwaj-a81737128" title="rohit-bhardwaj-a81737128"><svg class="svg-icon grey"><use xlink:href="/text-vector-visualisation/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/rohetoric" title="rohetoric"><svg class="svg-icon grey"><use xlink:href="/text-vector-visualisation/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
