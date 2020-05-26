@@ -2,8 +2,6 @@
 toc: false
 layout: post
 comments: true
-hide: false
-search_exclude: true
 description: A complete guide on the requirements needed and the step by step execution of the exploration-pipeline.
 categories: [markdown,jupyter,fasttext,tensorflow,tensorboard]
 title: Prerequisites for Exploration-Pipeline
@@ -55,7 +53,7 @@ According to the FastText documentation:
 The above command would yield a result:
 
 
-![TB1 Command](https://github.com/rohetoric/text-vector-visualisation/blob/master/images/cmdtb1.png)
+![]({{ site.baseurl }}/images/cmdtb1.png "TB1 Command")
 
 ---
 
@@ -71,19 +69,19 @@ The above command would yield a result:
 The above command would yield a result:
 
 
-![TB2 Command](https://github.com/rohetoric/text-vector-visualisation/blob/master/images/cmdtb2.png)
+![]({{ site.baseurl }}/images/cmdtb2 "TB2 Command")
 
 
 7. Open the local host URL link present in the last line. For Example: `http://localhost:6008/`​ [in TB1 Command image].
 
 8. The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.
 
-![Projector](https://github.com/rohetoric/text-vector-visualisation/blob/master/images/projector.png )
+![]({{ site.baseurl }}/images/projector.png "Projector")
 
 9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.
 
 
-![TB Visualisation](https://github.com/rohetoric/text-vector-visualisation/blob/master/images/tbvis.png)
+![]({{ site.baseurl }}/images/tbvis.png "TB Visualisation")
 
 
 That's it, folks!
