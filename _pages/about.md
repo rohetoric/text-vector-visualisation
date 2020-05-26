@@ -11,7 +11,7 @@ Hello There,
 
 I am Rohit Bhardwaj. 
 
-Currently, interning as a Business Analyst at [Verloop, Bangalore](https://verloop.io/), where I work with the Machine Learning Team.
+Currently, interning as a Business Analyst at [Verloop, Bangalore](https://verloop.io/), I work with the Machine Learning Team.
 The focus here is to automate customer support for businesses with Natural Language Processing. 
 
 
