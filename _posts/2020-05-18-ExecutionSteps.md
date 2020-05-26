@@ -1,9 +1,6 @@
 
 
-# Requirements and Execution Steps
-
-
-This blog-post gives the requirements needed and step-by-step execution to generate FastText vectors as well as visualise them on Tensorboard.
+# Exploration & Visualisation of FastText Word Vectors Using TensorFlow 1 and 2 
 
 
 ## Requirements and Dependencies
@@ -12,7 +9,7 @@ This blog-post gives the requirements needed and step-by-step execution to gener
 
 To run the code the following are a must to be installed:
 
-
+<p>
     
 |Serial No|Libraries to Install|
 | :----:  |       :----:       |    
@@ -20,14 +17,14 @@ To run the code the following are a must to be installed:
 |2.       |[TensorFlow](https://www.tensorflow.org/api_docs)|
 |3.       |[Spacy](https://spacy.io/usage)|
 
-
+</p>
 
 
 
 ### Steps to Execute
 
 
-
+<p>
 	
 1. Download the `bbc-text.csv` dataset from [here​](https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv) or it can be downloaded through the terminal if gcloud is already setup by the command `gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]`
 
@@ -89,4 +86,4 @@ The above command would yield a result:
 
 
 That's it, folks!
-
+</p>
