@@ -30,9 +30,7 @@ To run the code the following are a must to be installed:
 
 2. Make sure all the libraries are present/updated according to the `requirements` and `dependencies` mentioned above.
 
-3. To train the model according to the above complete dataset using FastText, run the notebook `fasttextmodeltrain.ipynb`. A pre-trained model based on the dataset has also been added named `sample-fasttextmodel.bin`. 
-
-*Note: The sample model is trained with dimension of word vector = 12 and the notebook trains a model with dimension of word vector  = 300.*
+3. To train the model according to the above complete dataset using FastText, run the notebook `fasttextmodeltrain.ipynb`. A pre-trained model based on the dataset can be downloaded from [here](https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM). 
 
 According to the FastText documentation:
 
@@ -48,7 +46,7 @@ According to the FastText documentation:
 
 4. Create a folder called `tb1files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 
-5. Run the notebook ​`tb1vis.ipynb`​.
+5. Run the notebook ​`tb1vis.ipynb` present in `_notebooks` folder​.
 
 6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb1files/`
 
@@ -65,7 +63,7 @@ The above command would yield a result:
 
 4. Create a folder called `tb2files` in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
 
-5. Run the notebook ​`tb2vis.ipynb`​.
+5. Run the notebook ​`tb2vis.ipynb`​ present in `_notebooks` folder​.
 
 6. Set the terminal address path to the directory where the files are stored in the terminal and type the command: `tensorboard ​ --logdir tb2files/`
 
