@@ -1,5 +1,6 @@
 ---
 toc: false
+image
 layout: post
 description: A complete guide on the requirements needed and the step by step execution of the exploration-pipeline.
 categories: [markdown]
@@ -27,7 +28,7 @@ To run the code the following are a must to be installed:
 	
 1. Download the `bbc-text.csv` dataset from [here​](https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv) or it can be downloaded through the terminal if gcloud is already setup by the command `gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]`
 
-2. Make sure all the libraries are present/updated according to the `requirements` and `dependencies` mentioned above.
+2. Make sure all the libraries are present/updated according to the **requirements** mentioned above.
 
 3. To train the model according to the above complete dataset using FastText, run the notebook present [here](https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html) or the notebook `fasttextmodeltrain.ipynb` present in `_notebooks` folder of the repository. A pre-trained model (2.4GB size) based on the dataset can be downloaded from [here](https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM). 
 
@@ -52,7 +53,7 @@ According to the FastText documentation:
 The above command would yield a result:
 
 
-![TB1 Command](image/cmdtb1.png)
+![]({{https://github.com/rohetoric/text-vector-visualisation}}/images/cmdtb1.png "TB1 Command")
 
 ---
 
@@ -68,19 +69,19 @@ The above command would yield a result:
 The above command would yield a result:
 
 
-![TB2 Command](image/cmdtb2.png)
+![]({{https://github.com/rohetoric/text-vector-visualisation}}/images/cmdtb2.png "TB2 Command")
 
 
 7. Open the local host URL link present in the last line. For Example: `http://localhost:6008/`​ [in TB1 Command image].
 
 8. The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.
 
-![Projector](image/projector.png)
+![]({{https://github.com/rohetoric/text-vector-visualisation}}/images/projector.png "Projector")
 
 9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.
 
 
-![TB Visualisation](image/tbvis.png)
+![]({{https://github.com/rohetoric/text-vector-visualisation}}/images/tbvis.png "TB Visualisation")
 
 
 That's it, folks!
