@@ -30,7 +30,7 @@ To run the code the following are a must to be installed:
 
 2. Make sure all the libraries are present/updated according to the `requirements` and `dependencies` mentioned above.
 
-3. To train the model according to the above complete dataset using FastText, run the notebook `fasttextmodeltrain.ipynb`. A pre-trained model based on the dataset can be downloaded from [here](https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM). 
+3. To train the model according to the above complete dataset using FastText, run the notebook `fasttextmodeltrain.ipynb` present in `_notebooks` folder. A pre-trained model (2.4GB size) based on the dataset can be downloaded from [here](https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM). 
 
 According to the FastText documentation:
 
