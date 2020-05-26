@@ -1,11 +1,11 @@
 ---
-toc: true
+toc: false
 layout: post
 description: A complete guide on the requirements needed and the step by step execution of the exploration-pipeline.
 categories: [markdown]
-title: Requirements and Execution Steps
+title: Prerequisites for Exploration-Pipeline
 ---
-
+# Requirements and Execution Steps
 
 
 ## Requirements and Dependencies
@@ -14,7 +14,6 @@ title: Requirements and Execution Steps
 
 To run the code the following are a must to be installed:
 
-<p>
     
 |Serial No|Libraries to Install|
 | -  | - |    
@@ -22,14 +21,9 @@ To run the code the following are a must to be installed:
 |2.       |[TensorFlow](https://www.tensorflow.org/api_docs)|
 |3.       |[Spacy](https://spacy.io/usage)|
 
-</p>
-
 
 
 ### Steps to Execute
-
-
-<p>
 	
 1. Download the `bbc-text.csv` dataset from [here​](https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv) or it can be downloaded through the terminal if gcloud is already setup by the command `gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]`
 
@@ -61,7 +55,6 @@ The above command would yield a result:
 ![TB1 Command](../images/cmdtb1.png)
 
 ---
-
 
 ### To Visualise Embeddings Using TF2 [ADVISED]
 
