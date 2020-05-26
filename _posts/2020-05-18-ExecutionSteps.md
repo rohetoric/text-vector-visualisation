@@ -57,7 +57,7 @@ According to the FastText documentation:
 The above command would yield a result:
 
 
-!["TB1 Command"](../images/cmdtb1.png)
+![TB1 Command](https://github.com/rohetoric/text-vector-visualisation/blob/master/images/cmdtb1.png)
 
 ---
 
@@ -73,19 +73,19 @@ The above command would yield a result:
 The above command would yield a result:
 
 
-!["TB2 Command"](../images/cmdtb2.png )
+![TB2 Command](https://github.com/rohetoric/text-vector-visualisation/blob/master/images/cmdtb2.png)
 
 
 7. Open the local host URL link present in the last line. For Example: `http://localhost:6008/`​ [in TB1 Command image].
 
 8. The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.
 
-!["Projector"](../images/projector.png )
+![Projector](https://github.com/rohetoric/text-vector-visualisation/blob/master/images/projector.png )
 
 9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.
 
 
-!["TB Visualisation"](../images/tbvis.png)
+![TB Visualisation](https://github.com/rohetoric/text-vector-visualisation/blob/master/images/tbvis.png)
 
 
 That's it, folks!
