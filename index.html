@@ -95,7 +95,7 @@ window.onload = wrap_img;
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <div class="home"><html>
-
+<!-- 
 <style>
 	table, th, td {
     width: 50%;
@@ -104,7 +104,7 @@ window.onload = wrap_img;
     border: 1px solid black;
     border-collapse: collapse;
 }
-</style>
+</style> -->
 
 
 
@@ -148,7 +148,7 @@ This practice is beneficial when we want to cover the maximum number of sentence
 </div>
 
 
-<h2><b>Requirements and Dependencies</b></h2>
+<!-- <h2><b>Requirements and Dependencies</b></h2>
 
 
 
@@ -181,7 +181,7 @@ This practice is beneficial when we want to cover the maximum number of sentence
 
 <h4>
 <p>	
-1. Download the <i>bbc-text.csv</i> dataset from <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">here</a> or it can be downloaded through the terminal if gcloud is already setup by the command:<br />
+1. Download the <i>bbc-text.csv</i> dataset from <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">here</a> or it can be downloaded through the terminal if gcloud is already setup by the command:<br>
 <code>gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]</code>
 </p>
 <p>
@@ -200,10 +200,10 @@ According to the FastText documentation:
 <b>Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are the same.</b>
 </p>
 
-<hr />
+<hr>
 
 <center>
-<h3><b>To Visualise Embeddings Using TF1 [<font color="red">NOT ADVISED</font>]</b></h3>
+<h3><b>To Visualise Embeddings Using TF1 [<font color='red'>NOT ADVISED</font>]</b></h3>
 </center>
 
 <p>
@@ -223,10 +223,10 @@ The above command would yield a result:
 <img src="images/cmdtb1.png" alt="TB1 Terminal Command" style="width: auto; height: 250px;" /> 
 </div>
 
-<hr />
+<hr>
 
 <center>
-<h3><b>To Visualise Embeddings Using TF2 [<font color="green">ADVISED</font>]</b></h3>
+<h3><b>To Visualise Embeddings Using TF2 [<font color='green'>ADVISED</font>]</b></h3>
 </center>
 
 <p>
@@ -246,7 +246,7 @@ The above command would yield a result:
 <img src="images/cmdtb2.png" alt="TB2 Terminal Command" style="width: auto; height: 250px;" /> 
 </div>
 
-<hr />
+<hr>
 
 <p>
 7. Open the local host URL link present in the last line. For Example: <code>http://localhost:6008/</code> [in TB1 Command image].
@@ -265,16 +265,20 @@ The above command would yield a result:
 
 
 <div style="display: flex; justify-content: center;">
-  <img src="images/tbvis.png" alt="Visualisation on Tensorboard" style="width: auto; height: 350px;" />
+  <img src="images/tbvis.png" alt = "Visualisation on Tensorboard" style="width: auto; height: 350px;" />
 </div>
-<br />
-<p>
+<br>
+ -->
+ <p>
+<h4>
 In <a href="https://verloop.io/">Verloop</a>, we observed that the exploration-pipeline for different intents helped us in seeing a coverage jump of about <b>~10-11%</b> from the dataset the machine learning model wasn't able to cover after it's first run of prediction. This guaranteed the success in working of the pipeline. 
+</h4>
 </p>
 <p>
-That's it, folks!
-</p>
+<h4>
+To begin with the execution, it is important to know the pre-requisites which can be known from <a href="https://rohetoric.github.io/text-vector-visualisation/markdown/jupyter/fasttext/tensorflow/tensorboard/2020/05/18/ExecutionSteps.html">here</a>.
 </h4>
+</p>
 
 <hr />
 

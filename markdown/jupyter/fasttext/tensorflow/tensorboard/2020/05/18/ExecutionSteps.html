@@ -166,17 +166,11 @@ window.onload = wrap_img;
 
 <h3 id="steps-to-execute">Steps to Execute</h3>
 
-<ol>
-  <li>
-    <p>Download the <code class="highlighter-rouge">bbc-text.csv</code> dataset from <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">here​</a> or it can be downloaded through the terminal if gcloud is already setup by the command <code class="highlighter-rouge">gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]</code></p>
-  </li>
-  <li>
-    <p>Make sure all the libraries are present/updated according to the <strong>requirements</strong> mentioned above.</p>
-  </li>
-  <li>
-    <p>To train the model according to the above complete dataset using FastText, run the notebook present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html">here</a> or the notebook <code class="highlighter-rouge">fasttextmodeltrain.ipynb</code> present in <code class="highlighter-rouge">_notebooks</code> folder of the repository. A pre-trained model (2.4GB size) based on the dataset can be downloaded from <a href="https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM">here</a>.</p>
-  </li>
-</ol>
+<p>1.) Download the <code class="highlighter-rouge">bbc-text.csv</code> dataset from <a href="https://storage.googleapis.com/dataset-uploader/bbc/bbc-text.csv">here​</a> or it can be downloaded through the terminal if gcloud is already setup by the command <code class="highlighter-rouge">gsutil cp gs:​//​dataset-uploader​/bbc/​bbc-text.csv [path to notebook directory]</code></p>
+
+<p>2.) Make sure all the libraries are present/updated according to the <strong>requirements</strong> mentioned above.</p>
+
+<p>3.) To train the model according to the above complete dataset using FastText, run the notebook present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/fasttext/python/2020/05/20/fasttext-model-train.html">here</a> or the notebook <code class="highlighter-rouge">fasttextmodeltrain.ipynb</code> present in <code class="highlighter-rouge">_notebooks</code> folder of the repository. A pre-trained model (2.4GB size) based on the dataset can be downloaded from <a href="https://learnermanipal-my.sharepoint.com/:u:/g/personal/rohit_rajesh_learner_manipal_edu/EXiXnzOeVN9KsdWpoFgr4CABfblCuo8RamsdLM9NUyatyA?e=yjkplM">here</a>.</p>
 
 <p>According to the FastText documentation:</p>
 
@@ -188,17 +182,11 @@ window.onload = wrap_img;
 
 <h3 id="to-visualise-embeddings-using-tf1-not-advised">To Visualise Embeddings Using TF1 [<font color="red">NOT ADVISED</font>]</h3>
 
-<ol>
-  <li>
-    <p>Create a folder called <code class="highlighter-rouge">tb1files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.</p>
-  </li>
-  <li>
-    <p>Run the notebook ​present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb1vis.html">here</a> or the notebook <code class="highlighter-rouge">tb1vis.ipynb</code> present in <code class="highlighter-rouge">_notebooks</code> folder​ of the repository.</p>
-  </li>
-  <li>
-    <p>Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code class="highlighter-rouge">tensorboard ​--logdir tb1files/</code></p>
-  </li>
-</ol>
+<p>4.) Create a folder called <code class="highlighter-rouge">tb1files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.</p>
+
+<p>5.) Run the notebook ​present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb1vis.html">here</a> or the notebook <code class="highlighter-rouge">tb1vis.ipynb</code> present in <code class="highlighter-rouge">_notebooks</code> folder​ of the repository.</p>
+
+<p>6.) Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code class="highlighter-rouge">tensorboard ​--logdir tb1files/</code></p>
 
 <p>The above command would yield a result:</p>
 
@@ -208,36 +196,23 @@ window.onload = wrap_img;
 
 <h3 id="to-visualise-embeddings-using-tf2-advised">To Visualise Embeddings Using TF2 [<font color="green">ADVISED</font>]</h3>
 
-<ol>
-  <li>
-    <p>Create a folder called <code class="highlighter-rouge">tb2files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.</p>
-  </li>
-  <li>
-    <p>Run the notebook present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb2vis.html">here</a> or ​the notebook <code class="highlighter-rouge">tb2vis.ipynb</code>​ present in <code class="highlighter-rouge">_notebooks</code> folder​ of the repository.</p>
-  </li>
-  <li>
-    <p>Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code class="highlighter-rouge">tensorboard ​--logdir tb2files/</code></p>
-  </li>
-</ol>
+<p>4.) Create a folder called <code class="highlighter-rouge">tb2files</code> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.</p>
+
+<p>5.) Run the notebook present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb2vis.html">here</a> or ​the notebook <code class="highlighter-rouge">tb2vis.ipynb</code>​ present in <code class="highlighter-rouge">_notebooks</code> folder​ of the repository.</p>
+
+<p>6.) Set the terminal address path to the directory where the files are stored in the terminal and type the command: <code class="highlighter-rouge">tensorboard ​--logdir tb2files/</code></p>
 
 <p>The above command would yield a result:</p>
 
-<p><img src="/text-vector-visualisation/images/cmdtb2" alt="" title="TB2 Command" /></p>
+<p><img src="/text-vector-visualisation/images/cmdtb2.png" alt="" title="TB2 Command" /></p>
 
-<ol>
-  <li>
-    <p>Open the local host URL link present in the last line. For Example: <code class="highlighter-rouge">http://localhost:6008/</code>​ [in TB1 Command image].</p>
-  </li>
-  <li>
-    <p>The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.</p>
-  </li>
-</ol>
+<p>7.) Open the local host URL link present in the last line. For Example: <code class="highlighter-rouge">http://localhost:6008/</code>​ [in TB1 Command image].</p>
+
+<p>8.) The local host website shown below will run. From the drop-down which reads Inactive, press and go to Projector as depicted by the arrow in the image below.</p>
 
 <p><img src="/text-vector-visualisation/images/projector.png" alt="" title="Projector" /></p>
 
-<ol>
-  <li>This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.</li>
-</ol>
+<p>9.) This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example ‘plea’ shown below.</p>
 
 <p><img src="/text-vector-visualisation/images/tbvis.png" alt="" title="TB Visualisation" /></p>
 
