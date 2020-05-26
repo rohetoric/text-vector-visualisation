@@ -29,7 +29,7 @@ A popular idea in machine learning is to represent words by vectors. FastText ve
 This hidden information helps us in :
 <ol>
 <li>Finding and extracting misspellings of a target word in the entire dataset.</li>
-<li>Finding words which occur commonly in context (in neighbour) to the the target word. This give an intuition of the type of semantic information the vectors are able to capture.</li>
+<li>Finding words that occur commonly in context (in neighbour) to the target word. This gives an intuition of the type of semantic information the vectors can capture.</li>
 <li>Finding similarity between different words given as a cosine of the angle between the word vectors. The word with the cosine distance closer to 1 is a more similar word to the target word.</li>
 </ol>
 </h4>
@@ -37,7 +37,7 @@ This hidden information helps us in :
 
 <p>
 <h4>
-Visualising the vectors on the TensorBoard gives us a 3 dimensional view of a 300 dimensional word vector. It makes us visualise the top misspellings for the target word as well as the cosine distance of the misspelling to the target word. 
+Visualising the vectors on the TensorBoard gives us a 3-dimensional view of a 300-dimensional word vector. It makes us visualise the top misspellings for the target word as well as the cosine distance of the misspelling to the target word. 
 </h4>
 </p>
 
@@ -102,10 +102,10 @@ This practice is beneficial when we want to cover the maximum number of sentence
 According to the FastText documentation:
 </p>
 <p>
-<blockquote><h4>The most important parameters of the model are its dimension and the range of size for the subwords. The dimension controls the size of the vectors, the larger they are the more information they can capture but requires more data to be learned. As any value in the 100-300 range is popular, the notebook has been implemented with dimension equal to 300.</h4></blockquote>
+<blockquote><h4>The most important parameters of the model are its dimension and the range of size for the subwords. The dimension controls the size of the vectors, the larger they are the more information they can capture but requires more data to be learned. As any value in the 100-300 range is popular, the notebook has been implemented with a dimension equal to 300.</h4></blockquote>
 </p>
 <p>
-<b>Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are same.</b>
+<b>Steps 4,5 and 6 differ for TF1 and TF 2. After that, the steps are the same.</b>
 </p>
 
 <hr>
@@ -115,7 +115,7 @@ According to the FastText documentation:
 </center>
 
 <p>
-4. Create a folder called <u>tb1files</u> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+4. Create a folder called <u>tb1files</u> in the same directory of the notebooks​ and keep it empty. It will store all the TensorFlow log files after step 5 is run.
 </p>
 <p>
 5. Run the notebook ​present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb1vis.html">here</a>​.
@@ -138,7 +138,7 @@ The above command would yield a result:
 </center>
 
 <p>
-4. Create a folder called <u>tb2files</u> in the same directory of the notebooks​ and keep it empty. It will store all the tensorflow log files after step 5 is run.
+4. Create a folder called <u>tb2files</u> in the same directory of the notebooks​ and keep it empty. It will store all the TensorFlow log files after step 5 is run.
 </p>
 <p>
 5. Run the notebook ​present <a href="https://rohetoric.github.io/text-vector-visualisation/jupyter/tensorflow/python/2020/05/21/tb2vis.html">here</a>.
@@ -168,7 +168,7 @@ The above command would yield a result:
 </div>
 
 <p>
-9. This will plot the words according to their embedding values shown in the 3D graph of tensorboard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example <b>‘plea’</b> shown below.
+9. This will plot the words according to their embedding values shown in the 3D graph of the TensorBoard. The nearest neighbours of a word can be found by typing the word in the search bar, as done for the example <b>‘plea’</b> shown below.
 </p>
 
 
