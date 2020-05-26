@@ -1,5 +1,8 @@
 ---
-layout: page
+toc: true
+layout: post
+description: A complete guide on the requirements needed and the step by step execution of the exploration-pipeline.
+categories: [markdown]
 title: Requirements and Execution Steps
 ---
 
@@ -14,7 +17,7 @@ To run the code the following are a must to be installed:
 <p>
     
 |Serial No|Libraries to Install|
-| :----:  |       :----:       |    
+| -  | - |    
 |1.       |[FastText](https://fasttext.cc/docs/en/support.html)|
 |2.       |[TensorFlow](https://www.tensorflow.org/api_docs)|
 |3.       |[Spacy](https://spacy.io/usage)|
