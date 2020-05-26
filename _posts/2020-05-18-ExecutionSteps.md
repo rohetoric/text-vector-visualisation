@@ -1,6 +1,8 @@
+---
+layout: page
+title: Requirements and Execution Steps
+---
 
-
-# Exploration & Visualisation of FastText Word Vectors Using TensorFlow 1 and 2 
 
 
 ## Requirements and Dependencies
