@@ -109,7 +109,40 @@ window.onload = wrap_img;
 
 
 <body>
-<center><h1><b>Exploration and Visualisation Of Word Vectors</b></h1></center>
+<center><h1><b>Exploration and Visualisation Of Word Vectors in Chat</b></h1></center>
+
+<p>
+<h4>
+At <a href="https://verloop.io/">Verloop</a>, we observed that the exploration-pipeline for different intents helped us in seeing a coverage jump of about <b>~10-11%</b> from the dataset the machine learning model wasn't able to cover after it's first run of prediction.
+</h4>
+</p>
+
+<p>
+<h4>
+Although the data used for the pipeline in this blog-post is based on the articles printed in BBC newspapers but the underlying logic replicates to chat data as well.
+For example, if we have three chat queries of an E-Commerce company like Amazon based on the same <u>return</u>:
+<ol>
+<li><i>Order hasn't been <u>retured</u> to me yet!</i></li>
+<li><i>Please <u>retrun</u> my products.</i></li>
+<li><i>Expecting <u>retrn</u> by Thursday.</i></li>
+</ol>
+</h4>
+</p>
+
+<p>
+<h4>
+Here, <u>return</u> covers the chat query examples but it is not feasible to use Edit-distance based, Token based and Sequence based algorithmic approaches to cover all its misspellings in the dataset. The exploration-pipline, here, is able to do that, increasing the coverage of the intent in the dataset.  
+</h4>
+</p>
+
+<p>
+<h4>The exploration-pipeline is diagrammatically represented as:</h4>
+</p>
+
+<div style="display: flex; justify-content: center;">
+  <img src="images/flowchart.png" alt="Flowchart" style="width: auto; height: 170px; border: 1px;" />
+</div>
+
 <p>
 <h4>
 A popular idea in machine learning is to represent words by vectors. FastText vectors capture hidden information about a language, like <b><i>word analogies</i></b> or <b><i>semantic</i></b>.
@@ -121,37 +154,18 @@ A popular idea in machine learning is to represent words by vectors. FastText ve
 This hidden information helps us in :
 <ol>
 <li>Finding and extracting misspellings of a target word in the entire dataset.</li>
-<li>Finding words that occur commonly in context (in neighbour) to the target word. This gives an intuition of the type of semantic information the vectors can capture.</li>
-<li>Finding similarity between different words given as a cosine of the angle between the word vectors. The word with the cosine distance closer to 1 is a more similar word to the target word.</li>
+<li>Finding words that occur commonly in context (in neighbour) to the target word.</li>
+<li>Finding similarity between different words given as a cosine of the angle between the word vectors.</li>
 </ol>
 </h4>
 </p>
 
 <p>
 <h4>
-Visualising the vectors on the TensorBoard gives us a 3-dimensional view of a 300-dimensional word vector. It makes us visualise the top misspellings for the target word as well as the cosine distance of the misspelling to the target word. 
+Visualisation on TensorBoard gives us a 3-dimensional view of a 300-dimensional FastText word vector. It makes us visualise the top misspellings of a target intent and cover its misspellings thereby increasing the coverage of the intent in the dataset. 
 </h4>
 </p>
 
-<p>
-<h4>
-This practice is beneficial when we want to cover the maximum number of sentences which have the same semantic information or intent in the dataset. This is called <b>coverage</b> of the intent in the dataset. By using the exploration-pipeline [shown below], the coverage for an intent can be increased.
-</h4>
-</p>
-
-<p>
-<h4>The complete exploration-pipeline is diagrammatically represented as:</h4>
-</p>
-
-<div style="display: flex; justify-content: center;">
-  <img src="images/flowchart.png" alt="Flowchart" style="width: auto; height: 170px; border: 1px;" />
-</div>
-
- <p>
-<h4>
-At <a href="https://verloop.io/">Verloop</a>, we observed that the exploration-pipeline for different intents helped us in seeing a coverage jump of about <b>~10-11%</b> from the dataset the machine learning model wasn't able to cover after it's first run of prediction. This guaranteed the success in working of the pipeline. 
-</h4>
-</p>
 <p>
 <h4>
 To begin with the execution, it is important to know the pre-requisites and execution steps which can be found <a href="https://rohetoric.github.io/text-vector-visualisation/markdown/jupyter/fasttext/tensorflow/tensorboard/2020/05/18/ExecutionSteps.html">here</a>.
@@ -162,6 +176,23 @@ To begin with the execution, it is important to know the pre-requisites and exec
 
 </body>
 <h1> Posts </h1>
+
+<!-- <p>
+<h4>
+This practice is beneficial when we want to cover the maximum number of sentences which have the same semantic information or intent in the dataset. This is called <b>coverage</b> of the intent in the dataset. By using the exploration-pipeline [shown below], the coverage for an intent can be increased.
+</h4>
+</p>
+
+ 
+ -->
+
+
+
+
+
+
+
+
 
 <!-- <h2><b>Requirements and Dependencies</b></h2>
 
