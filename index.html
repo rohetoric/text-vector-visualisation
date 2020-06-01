@@ -21,25 +21,36 @@ search_exclude: true
 
 <p>
 <h4>
-At <a href="https://verloop.io/">Verloop</a>, we observed that the exploration-pipeline for different intents helped us in seeing a coverage jump of about <b>~10-11%</b> from the dataset the machine learning model wasn't able to cover after it's first run of prediction.
+At <a href="https://verloop.io/">Verloop</a>, we observed that the exploration-pipeline for different intents helped us in seeing a coverage jump of about <b>~10-11%</b> from the dataset the machine learning model wasn't able to cover after it's first run of prediction. This is because, we weren't extracting misspellings and paraphrased sentences of the intents before.
 </h4>
 </p>
 
 <p>
 <h4>
 Although the data used for the pipeline in this blog-post is based on the articles printed in BBC newspapers, the underlying logic replicates to chat data as well.
-For example, if we have three chat queries of an E-Commerce company like Amazon based on the same <u>return</u>:
+For example, the intent <i><u>exchange</u></i> found in chat queries of E-Commerce companies like Amazon can be misspelled and written as:
 <ol>
-<li><i>Order hasn't been <u>retured</u> to me yet!</i></li>
-<li><i>Please <u>retrun</u> my products.</i></li>
-<li><i>Expecting <u>retrn</u> by Thursday.</i></li>
+<li><i>Order hasn't been <u>exchanged</u> yet!</i></li>
+<li><i>Please <u>ex change</u> my product.</i></li>
+<li><i>Expecting <u>exch</u> to take place by Thursday.</i></li>
 </ol>
+</h4>
+</p>
+
+
+<p>
+<h4>
+or the same intent can be paraphrased as:
+<ol>
+<li><i><u>Change</u> my product. It is not working.</i></li>
+<li><i>I had issued a <u>replacement</u>. What is its status?</i></li>
+</ol> 
 </h4>
 </p>
 
 <p>
 <h4>
-Here, <u>return</u> covers the chat query examples but it is not feasible to use Edit-distance based, Token based, and Sequence-based algorithmic approaches to cover all of its misspellings in the dataset. The exploration-pipeline, here, can do that, increasing the coverage of the intent in the dataset.  
+ It is not feasible to use <a href="https://pypi.org/project/textdistance/">Edit-distance based, Token based, and Sequence-based algorithmic approaches</a> to cover all the misspellings as well as paraphrased sentences of an intent in the dataset. The exploration-pipeline, here, can do that, increasing the coverage of the intent in the dataset.  
 </h4>
 </p>
 
@@ -53,13 +64,13 @@ Here, <u>return</u> covers the chat query examples but it is not feasible to use
 
 <p>
 <h4>
-A popular idea in machine learning is to represent words by vectors. FastText vectors capture hidden information about a language, like <b><i>word analogies</i></b> or <b><i>semantic</i></b>.
+A popular idea in machine learning is to represent words by vectors. FastText vectors capture hidden information about a language, like <b><i>word analogies</i></b> or <b><i>semantic inforamtion</i></b>.
 </h4>
 </p>
 
 <p>
 <h4>
-This hidden information helps us in :
+The word analogies and semantic information help us in :
 <ol>
 <li>Finding and extracting misspellings of a target word in the entire dataset.</li>
 <li>Finding words that occur commonly in context (in neighbour) to the target word.</li>
@@ -70,7 +81,7 @@ This hidden information helps us in :
 
 <p>
 <h4>
-Visualisation on TensorBoard gives us a 3-dimensional view of a 300-dimensional FastText word vector. It makes us visualise the top misspellings of a target intent and cover its misspellings thereby increasing the coverage of the intent in the dataset. 
+Visualisation on TensorBoard gives us a 3-dimensional view of a 300-dimensional FastText word vector. It makes us visualise the top misspellings and the closest neighbouring words of a target intent, increasing the coverage of the intent in the dataset. 
 </h4>
 </p>
 
